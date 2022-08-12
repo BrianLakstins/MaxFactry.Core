@@ -1,0 +1,363 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Internal Coding Guidelines</title>
+	<style type="text/css">
+		.user-defined-markup .MsoNormal {
+			margin: 0 0 .0001pt 0!important;
+		}
+
+		.user-defined-markup p {
+			margin-top: 0;
+		}
+
+		.user-defined-markup p {
+			margin-top: 0;
+		}
+
+		a {
+			color: #000!important;
+			text-decoration: underline!important;
+		}
+
+			a, a:link, a:visited {
+				color: #06d;
+				cursor: pointer;
+				text-decoration: none;
+				font-weight: normal;
+			}
+
+				a, a:link, a:visited {
+					color: #06d;
+					cursor: pointer;
+					text-decoration: none;
+					font-weight: normal;
+				}
+
+		h2 {
+			font-size: 1.65em;
+			margin: 0 0;
+		}
+
+		h2 {
+			font-size: 1.65em;
+			margin: 0 0;
+		}
+
+		h2, h3, h4, h5, h6 {
+			color: #000;
+		}
+
+		h3 {
+			font-size: 1.45em;
+			margin: 3px 0;
+		}
+
+		h3 {
+			font-size: 1.45em;
+			margin: 3px 0;
+		}
+
+		.auto-style1 {
+			clear: both;
+			color: #000;
+			font-family: "Segoe UI Semibold", "Segoe UI", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+			font-weight: normal;
+			line-height: 125%;
+		}
+	</style>
+</head>
+<body>
+	<div>From: http://blogs.msdn.com/b/brada/archive/2005/01/26/361363.aspx
+	</div>
+	<h1>Internal Coding Guidelines</h1>
+
+
+	<p class="MsoNormal">
+		<b style="mso-bidi-font-weight: normal;"><span style="font-family: Arial; font-size: 14pt; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: &quot;Times New Roman&quot;;">Table of Contents<!--?xml:namespace prefix = o ns = "urn:schemas-microsoft-com:office:office" /--><o:p></o:p></span></b></p>
+	<p class="MsoToc1">
+		1. Introduction<span style="mso-tab-count: 1 dotted;">.......................................................................................................................................... </span>1<span style="font-size: 12pt; font-weight: normal;"><o:p></o:p></span></p>
+	<p class="MsoToc1">
+		2. Style Guidelines<span style="mso-tab-count: 1 dotted;">.................................................................................................................................... </span>2<span style="font-size: 12pt; font-weight: normal;"><o:p></o:p></span></p>
+	<p class="MsoToc2">
+		2.1 Tabs &amp; Indenting<span style="mso-tab-count: 1 dotted;">................................................................................................................................ </span>2<span style="font-size: 12pt;"><o:p></o:p></span></p>
+	<p class="MsoToc2">
+		2.2 Bracing<span style="mso-tab-count: 1 dotted;">............................................................................................................................................... </span>2<span style="font-size: 12pt;"><o:p></o:p></span></p>
+	<p class="MsoToc2">
+		2.3 Commenting<span style="mso-tab-count: 1 dotted;">........................................................................................................................................ </span>2<span style="font-size: 12pt;"><o:p></o:p></span></p>
+	<p class="MsoToc3" style="tab-stops: right dotted 496.3pt;">
+		<span style="mso-no-proof: yes;">2.3.1 Documentation Comments<span style="mso-tab-count: 1 dotted;">............................................................................................................. </span>2</span><span style="font-size: 12pt; mso-no-proof: yes;"><o:p></o:p></span></p>
+	<p class="MsoToc3" style="tab-stops: right dotted 496.3pt;">
+		<span style="mso-no-proof: yes;">2.3.2 Comment Style<span style="mso-tab-count: 1 dotted;">............................................................................................................................. </span>3</span><span style="font-size: 12pt; mso-no-proof: yes;"><o:p></o:p></span></p>
+	<p class="MsoToc2">
+		2.4 Spacing<span style="mso-tab-count: 1 dotted;">............................................................................................................................................... </span>3<span style="font-size: 12pt;"><o:p></o:p></span></p>
+	<p class="MsoToc2">
+		2.5 Naming<span style="mso-tab-count: 1 dotted;">............................................................................................................................................... </span>4<span style="font-size: 12pt;"><o:p></o:p></span></p>
+	<p class="MsoToc2">
+		2.6 Naming Conventions<span style="mso-tab-count: 1 dotted;">............................................................................................................................ </span>4<span style="font-size: 12pt;"><o:p></o:p></span></p>
+	<p class="MsoToc3" style="tab-stops: right dotted 496.3pt;">
+		<span style="mso-no-proof: yes;">2.6.1 Interop Classes<span style="mso-tab-count: 1 dotted;">............................................................................................................................. </span>4</span><span style="font-size: 12pt; mso-no-proof: yes;"><o:p></o:p></span></p>
+	<p class="MsoToc2">
+		2.7 File Organization<span style="mso-tab-count: 1 dotted;">................................................................................................................................. </span>5<span style="font-size: 12pt;"><o:p></o:p></span></p>
+	<p class="MsoNormal">
+		<a name="_Ref463345912"><o:p>&nbsp;</o:p></a></p>
+	<div class="Section2">
+		<h1><a name="_Toc6325239"><span style="mso-fareast-font-family: Arial; mso-bidi-font-family: Arial;"><span style="mso-list: Ignore;">1. </span></span>Introduction</a></h1>
+		<p class="MsoNormal">
+			First, read the .NET Framework Design Guidelines. Almost all naming conventions, casing rules, etc., are spelled out in this document. Unlike the Design Guidelines document, you should treat this document as a set of <b style="mso-bidi-font-weight: normal;"><i style="mso-bidi-font-style: normal;">suggested </i></b>guidelines.<span style="mso-spacerun: yes;">&nbsp; </span>These generally do not effect the customer view so they are not required. <span style="mso-spacerun: yes;">&nbsp;&nbsp;</span></p>
+		<h1><a name="_Toc6325240"><span style="mso-fareast-font-family: Arial; mso-bidi-font-family: Arial;"><span style="mso-list: Ignore;">2. </span></span>Style Guidelines</a></h1>
+		<h2 class="auto-style1"><a name="_Toc6325241"><span style="mso-fareast-font-family: Arial; mso-bidi-font-family: Arial;"><span style="mso-list: Ignore;">2.1 </span></span>Tabs &amp; Indenting</a></h2>
+		<p class="MsoNormal">
+			Tab characters (\0x09) should not be used in code. All indentation should be done with 4 space characters.</p>
+		<h2 class="auto-style1"><a name="_Toc6325242"><span style="mso-fareast-font-family: Arial; mso-bidi-font-family: Arial;"><span style="mso-list: Ignore;">2.2 </span></span>Bracing</a></h2>
+		<p class="MsoNormal">
+			Open braces should always be at the beginning of the line after the statement that begins the block. Contents of the brace should be indented by 4 spaces. For example:</p>
+		<p class="Code">
+			if (someExpression)<br />
+			{<br />
+			<span style="mso-tab-count: 1;">&nbsp;&nbsp; </span>DoSomething();<br />
+			}<br />
+			else<br />
+			{<br />
+			<span style="mso-tab-count: 1;">&nbsp;&nbsp; </span>DoSomethingElse();<br />
+			}</p>
+		<p class="MsoNormal">
+			“case” statements should be indented from the switch statement like this:</p>
+		<p class="Code">
+			switch (someExpression)
+			<br />
+			{</p>
+		<p class="Code">
+			<span style="mso-tab-count: 1;">&nbsp;&nbsp; </span>case 0:<br />
+			<span style="mso-tab-count: 2;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>DoSomething();<br />
+			<span style="mso-tab-count: 2;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>break;</p>
+		<p class="Code">
+			<span style="mso-tab-count: 1;">&nbsp;&nbsp; </span>case 1:<br />
+			<span style="mso-tab-count: 2;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>DoSomethingElse();<br />
+			<span style="mso-tab-count: 2;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>break;</p>
+		<p class="Code">
+			<span style="mso-tab-count: 1;">&nbsp;&nbsp; </span>case 2:
+			<br />
+			<span style="mso-spacerun: yes;">&nbsp;&nbsp; </span><span style="mso-tab-count: 1;">&nbsp;&nbsp; </span>{<br />
+			<span style="mso-tab-count: 3;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>int n = 1;<br />
+			<span style="mso-tab-count: 3;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>DoAnotherThing(n);<br />
+			<span style="mso-tab-count: 2;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<br />
+			<span style="mso-tab-count: 2;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>break;<br />
+			}</p>
+		<p class="MsoNormal">
+			Braces should never be considered optional. Even for single statement blocks, you should always use braces. This increases code readability and maintainability.</p>
+		<p class="Code">
+			for (int i=0; i&lt;100; i++) { DoSomething(i); }</p>
+		<h2 class="auto-style1"><a name="_Toc6325243"><span style="mso-fareast-font-family: Arial; mso-bidi-font-family: Arial;"><span style="mso-list: Ignore;">2.3 </span></span>Single line statements</a></h2>
+		<p class="MsoNormal">
+			<span style="mso-bookmark: _Toc6325243;">Single line statements can have braces that begin and end on the same line.</span></p>
+		<p class="Code">
+			<span style="mso-bookmark: _Toc6325243;">public class Foo<br />
+			{<br />
+			<span style="mso-tab-count: 1;">&nbsp;&nbsp; </span>int bar;</span></p>
+		<p class="Code">
+			<span style="mso-bookmark: _Toc6325243;"><span style="mso-tab-count: 1;">&nbsp;&nbsp; </span>public int Bar<br />
+			<span style="mso-tab-count: 1;">&nbsp;&nbsp; </span>{<br />
+			<span style="mso-tab-count: 2;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>get { return bar; }<br />
+			<span style="mso-tab-count: 2;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>set { bar = value; }<br />
+			<span style="mso-tab-count: 1;">&nbsp;&nbsp; </span>}</span></p>
+		<p class="Code">
+			<span style="mso-bookmark: _Toc6325243;">}</span></p>
+		<p class="MsoNormal">
+			<span style="mso-bookmark: _Toc6325243;">It is <i style="mso-bidi-font-style: normal;">suggested</i> that all control structures (if, while, for, etc.) use braces, but it is not required.</span></p>
+		<h2 class="auto-style1"><span style="mso-bookmark: _Toc6325243;"><span style="mso-fareast-font-family: Arial; mso-bidi-font-family: Arial;"><span style="mso-list: Ignore;">2.4 </span></span>Commenting</span></h2>
+		<p class="MsoNormal">
+			Comments should be used to describe intention, algorithmic overview, and/or logical flow.<span style="mso-spacerun: yes;">&nbsp; </span>It would be ideal, if from reading the comments alone, someone other than the author could understand a function’s intended behavior and general operation. While there are no minimum comment requirements and certainly some very small routines need no commenting at all, it is hoped that most routines will have comments reflecting the programmer’s intent and approach.</p>
+		<h3 class="auto-style1"><a name="_Toc530151483"></a><a name="_Toc6325244"><span style="mso-bookmark: _Toc530151483;"><span style="mso-fareast-font-family: Arial; mso-bidi-font-family: Arial;"><span style="mso-list: Ignore;">2.4.1 </span></span>Copyright notice</span></a></h3>
+		<p class="MsoNormal">
+			<span style="mso-bookmark: _Toc6325244;"><span style="mso-bookmark: _Toc530151483;">Each file should start with a copyright notice. To avoid errors in doc comment builds, you don’t want to use triple-slash doc comments, but using XML makes the comments easy to replace in the future. Final text will vary by product (you should contact legal for the exact text), but should be similar to:</span></span></p>
+		<p class="Code">
+			<span style="mso-bookmark: _Toc6325244;"><span style="mso-bookmark: _Toc530151483;">//-----------------------------------------------------------------------<br />
+			// &lt;copyright file=&quot;ContainerControl.cs&quot; company=&quot;Microsoft&quot;&gt;<br />
+			//<span style="mso-spacerun: yes;">&nbsp;&nbsp;&nbsp;&nbsp; </span>Copyright (c) Microsoft Corporation.<span style="mso-spacerun: yes;">&nbsp; </span>All rights reserved.<br />
+			// &lt;/copyright&gt;<br />
+			//-----------------------------------------------------------------------</span></span></p>
+		<h3 class="auto-style1"><span style="mso-bookmark: _Toc6325244;"><span style="mso-bookmark: _Toc530151483;"><span style="mso-fareast-font-family: Arial; mso-bidi-font-family: Arial;"><span style="mso-list: Ignore;">2.4.2 </span></span>Documentation Comments</span></span></h3>
+		<p class="MsoNormal">
+			<span style="mso-bookmark: _Toc530151483;">All methods should use XML doc comments. For internal dev comments, the &lt;devdoc&gt; tag should be used.</span></p>
+		<p class="Code">
+			<span style="mso-bookmark: _Toc530151483;">public class Foo
+			<br />
+			{</span></p>
+		<p class="Code" style="margin-left: 0.75in;">
+			<span style="mso-bookmark: _Toc530151483;">/// &lt;summary&gt;Public stuff about the method&lt;/summary&gt;<br />
+			/// &lt;param name=”bar”&gt;What a neat parameter!&lt;/param&gt;<br />
+			/// &lt;devdoc&gt;Cool internal stuff!&lt;/devdoc&gt;<br />
+			///<br />
+			public void MyMethod(int bar) { … }</span></p>
+		<p class="Code">
+			<span style="mso-bookmark: _Toc530151483;">}</span></p>
+		<p class="MsoNormal">
+			<span style="mso-bookmark: _Toc530151483;">However, it is common that you would want to move the XML documentation to an external file – for that, use the &lt;include&gt; tag.</span></p>
+		<p class="Code">
+			<span style="mso-bookmark: _Toc530151483;">public class Foo
+			<br />
+			{</span></p>
+		<p class="Code">
+			<span style="mso-bookmark: _Toc530151483;"><span style="mso-tab-count: 1;">&nbsp;&nbsp; </span>/// &lt;include file=&#39;doc\Foo.uex&#39; path=&#39;docs/doc[@for=&quot;Foo.MyMethod&quot;]/*&#39; /&gt;<br />
+			<span style="mso-tab-count: 1;">&nbsp;&nbsp; </span>///<br />
+			<span style="mso-tab-count: 1;">&nbsp;&nbsp; </span>public void MyMethod(int bar) { … }</span></p>
+		<p class="Code">
+			<span style="mso-bookmark: _Toc530151483;">}</span></p>
+		<p class="MsoNormal">
+			<span style="mso-bookmark: _Toc530151483;">UNDONE§ there is a big doc with all the comment tags we should be using… where is that?</span></p>
+		<h3 class="auto-style1"><span style="mso-bookmark: _Toc530151483;"><a name="_Toc6325245"><span style="mso-fareast-font-family: Arial; mso-bidi-font-family: Arial;"><span style="mso-list: Ignore;">2.4.3 </span></span>Comment Style</a></span></h3>
+		<p class="MsoNormal">
+			The <span class="Codefragment"><span style="font-size: 10pt;"><font face="Lucida Console">//</font></span></span> (two slashes) style of comment tags should be used in most situations. <span class="Codefragment"><span style="font-family: Verdana; font-size: 10pt;">Where ever possible, place comments above the code instead of beside it.</span></span><span style="mso-spacerun: yes;">&nbsp; </span>Here are some examples:</p>
+		<p class="Code">
+			<span class="Codefragment">// This is required for WebClient to work through the proxy<br />
+			GlobalProxySelection.Select = new WebProxy(&quot;http://itgproxy&quot;);<br style="mso-special-character: line-break;" />
+			<br style="mso-special-character: line-break;" />
+			<o:p></o:p></span>
+		</p>
+		<p class="Code">
+			<span class="Codefragment">// Create object to access Internet resources<br />
+			//<br />
+			WebClient myClient = new WebClient();<o:p></o:p></span></p>
+		<p class="MsoNormal">
+			Comments can be placed at the end of a line when space allows:</p>
+		<p class="Code">
+			<span class="Codefragment">public class SomethingUseful
+			<br />
+			{<br />
+			<span style="mso-spacerun: yes;">&nbsp;&nbsp;&nbsp; </span>private int<span style="mso-spacerun: yes;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>itemHash;<span style="mso-spacerun: yes;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>// instance member<br />
+			<span style="mso-spacerun: yes;">&nbsp;&nbsp;&nbsp; </span>private static bool<span style="mso-spacerun: yes;">&nbsp; </span>hasDoneSomething;<span style="mso-spacerun: yes;">&nbsp;&nbsp;&nbsp; </span>// static member<br />
+			</span>}</p>
+		<h2 class="auto-style1"><a name="_Toc6325246"><span style="mso-fareast-font-family: Arial; mso-bidi-font-family: Arial;"><span style="mso-list: Ignore;">2.5 </span></span>Spacing</a></h2>
+		<p class="MsoNormal">
+			Spaces improve readability by decreasing code density. Here are some guidelines for the use of space characters within code:</p>
+		<ul style="margin-top: 0in;" type="disc">
+			<li class="MsoNormal" style="tab-stops: list .5in; mso-list: l15 level1 lfo27;"><u>Do</u> use a single space after a comma between function arguments.<br />
+				Right:<span style="mso-tab-count: 2;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="Codefragment"><span style="font-size: 10pt;"><font face="Lucida Console">Console.In.Read(myChar, 0, 1);<br />
+				</font></span></span>Wrong: <span style="mso-tab-count: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="Codefragment"><span style="font-size: 10pt;"><font face="Lucida Console">Console.In.Read(myChar,0,1);<span style="mso-spacerun: yes;">&nbsp; </span><o:p></o:p></font></span></span></li>
+			<li class="MsoNormal" style="tab-stops: list .5in; mso-list: l15 level1 lfo27;"><u>Do not</u> use a space after the parenthesis and function arguments<br />
+				Right: <span style="mso-tab-count: 2;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="Codefragment"><span style="font-size: 10pt;"><font face="Lucida Console">CreateFoo(myChar, 0, 1)</font></span></span><span style="font-family: &quot;Courier New&quot;;"><br />
+				</span>Wrong: <span style="mso-tab-count: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="Codefragment"><span style="font-size: 10pt;"><font face="Lucida Console">CreateFoo( myChar, 0, 1 )</font></span></span> </li>
+			<li class="MsoNormal" style="tab-stops: list .5in; mso-list: l15 level1 lfo27;"><u>Do not</u> use spaces between a function name and parenthesis.<br />
+				Right: <span style="mso-tab-count: 2;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="Codefragment"><span style="font-size: 10pt;"><font face="Lucida Console">CreateFoo()</font></span></span><span style="font-family: &quot;Courier New&quot;;"><br />
+				</span>Wrong: <span style="mso-tab-count: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="Codefragment"><span style="font-size: 10pt;"><font face="Lucida Console">CreateFoo ()</font></span></span> </li>
+			<li class="MsoNormal" style="tab-stops: list .5in; mso-list: l15 level1 lfo27;"><u>Do not</u> use spaces inside brackets.<br />
+				Right<span style="font-family: &quot;Courier New&quot;;">: <span style="mso-tab-count: 1;">&nbsp;&nbsp; </span></span><span class="Codefragment"><span style="font-size: 10pt;"><font face="Lucida Console">x = dataArray[index];<br />
+				</font></span></span>Wrong: <span style="mso-tab-count: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="Codefragment"><span style="font-size: 10pt;"><font face="Lucida Console">x = dataArray[ index ];<o:p></o:p></font></span></span> </li>
+			<li class="MsoNormal" style="tab-stops: list .5in; mso-list: l15 level1 lfo27;"><u>Do</u> use a single space before flow control statements<br />
+				Right:<span style="mso-tab-count: 2;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="Codefragment"><span style="font-size: 10pt;"><font face="Lucida Console">while (x == y)<br />
+				</font></span></span>Wrong: <span style="mso-tab-count: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="Codefragment"><span style="font-size: 10pt;"><font face="Lucida Console">while(x==y)<o:p></o:p></font></span></span> </li>
+			<li class="MsoNormal" style="tab-stops: list .5in; mso-list: l15 level1 lfo27;"><u>Do</u> use a single space before and after comparison operators<br />
+				Right:<span style="mso-tab-count: 2;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="Codefragment"><span style="font-size: 10pt;"><font face="Lucida Console">if (x == y)<br />
+				</font></span></span>Wrong: <span style="mso-tab-count: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="Codefragment"><span style="font-size: 10pt;"><font face="Lucida Console">if (x==y)<o:p></o:p></font></span></span> </li>
+		</ul>
+		<h2 class="auto-style1"><a name="_Toc6325247"><span style="mso-fareast-font-family: Arial; mso-bidi-font-family: Arial;"><span style="mso-list: Ignore;">2.6 </span></span>Naming</a></h2>
+		<p class="MsoNormal">
+			Follow all .NET Framework Design Guidelines for both internal and external members. Highlights of these include:</p>
+		<ul style="margin-top: 0in;" type="disc">
+			<li class="MsoNormal" style="tab-stops: list .5in; mso-list: l16 level1 lfo30;"><b style="mso-bidi-font-weight: normal;">Do not</b> use Hungarian notation </li>
+			<li class="MsoNormal" style="tab-stops: list .5in; mso-list: l16 level1 lfo30;"><b style="mso-bidi-font-weight: normal;">Do not</b> use a prefix for member variables (_, m_, s_, etc.). If you want to distinguish between local and member variables you should use “this.” in C# and “<!--?xml:namespace prefix = st1 ns = "urn:schemas-microsoft-com:office:smarttags" /--><st1:state><st1:place>Me.</st1:place></st1:state>” in VB.NET. </li>
+			<li class="MsoNormal" style="tab-stops: list .5in; mso-list: l16 level1 lfo30;"><b style="mso-bidi-font-weight: normal;">Do</b> use camelCasing for member variables </li>
+			<li class="MsoNormal" style="tab-stops: list .5in; mso-list: l16 level1 lfo30;"><b style="mso-bidi-font-weight: normal;">Do</b> use camelCasing for parameters </li>
+			<li class="MsoNormal" style="tab-stops: list .5in; mso-list: l16 level1 lfo30;"><b style="mso-bidi-font-weight: normal;">Do</b> use camelCasing for local variables </li>
+			<li class="MsoNormal" style="tab-stops: list .5in; mso-list: l16 level1 lfo30;"><b style="mso-bidi-font-weight: normal;">Do </b>use PascalCasing for function, property, event, and class names </li>
+			<li class="MsoNormal" style="tab-stops: list .5in; mso-list: l16 level1 lfo30;"><b style="mso-bidi-font-weight: normal;">Do</b> prefix interfaces names with “I” </li>
+			<li class="MsoNormal" style="tab-stops: list .5in; mso-list: l16 level1 lfo30;"><b style="mso-bidi-font-weight: normal;">Do not</b> prefix enums, classes, or delegates with any letter </li>
+		</ul>
+		<p class="MsoNormal">
+			The reasons to extend the public rules (no Hungarian, no prefix for member variables, etc.) is to produce a consistent source code appearance. In addition a goal is to have clean readable source. Code legibility should be a primary goal.<i style="mso-bidi-font-style: normal;"><o:p></o:p></i></p>
+		<h2 class="auto-style1"><a name="_Toc6325248"><span style="mso-fareast-font-family: Arial; mso-bidi-font-family: Arial;"><span style="mso-list: Ignore;">2.7 </span></span>Naming Conventions</a></h2>
+		<h3 class="auto-style1"><a name="_Toc6325249"><span style="mso-fareast-font-family: Arial; mso-bidi-font-family: Arial;"><span style="mso-list: Ignore;">2.7.1 </span></span>Interop Classes</a></h3>
+		<p class="MsoNormal">
+			Classes that are there for interop wrappers (DllImport statements) should follow the naming convention below:</p>
+		<ul style="margin-top: 0in;" type="disc">
+			<li class="MsoNormal" style="tab-stops: list .5in; mso-list: l14 level1 lfo33;"><b style="mso-bidi-font-weight: normal;">NativeMethods</b> – No suppress unmanaged code attribute, these are methods that can be used anywhere because a stack walk will be performed.<b style="mso-bidi-font-weight: normal;"><o:p></o:p></b> </li>
+			<li class="MsoNormal" style="tab-stops: list .5in; mso-list: l14 level1 lfo33;"><b style="mso-bidi-font-weight: normal;">UnsafeNativeMethods</b> – Has suppress unmanaged code attribute. These methods are potentially dangerous and any <i style="mso-bidi-font-style: normal;">caller</i> of these methods must do a full security review to ensure that the usage is safe and protected as no stack walk will be performed.<b style="mso-bidi-font-weight: normal;"><o:p></o:p></b> </li>
+			<li class="MsoNormal" style="tab-stops: list .5in; mso-list: l14 level1 lfo33;"><b style="mso-bidi-font-weight: normal;">SafeNativeMethods </b>– Has suppress unmanaged code attribute. These methods are safe and can be used fairly safely and the caller isn’t needed to do full security reviews even though no stack walk will be performed.<b style="mso-bidi-font-weight: normal;"><o:p></o:p></b> </li>
+		</ul>
+		<p class="Code">
+			class NativeMethods
+			<br />
+			{<br />
+			<span style="mso-tab-count: 1;">&nbsp;&nbsp; </span>private NativeMethods() {}</p>
+		<p class="Code" style="text-indent: 0.25in;">
+			<br />
+			<span style="mso-tab-count: 1;">&nbsp;&nbsp; </span>[DllImport(“user32”)]<br />
+			<span style="mso-tab-count: 1;">&nbsp;&nbsp; </span>internal static extern void FormatHardDrive(string driveName);<br />
+			}</p>
+		<p class="Code">
+			[SuppressUnmanagedCode]<br />
+			class UnsafeNativeMethods
+			<br />
+			{<br />
+			<span style="mso-tab-count: 1;">&nbsp;&nbsp; </span>private UnsafeNativeMethods() {}</p>
+		<p class="Code">
+			<span style="mso-tab-count: 1;">&nbsp;&nbsp; </span>[DllImport(“user32”)]<br />
+			<span style="mso-tab-count: 1;">&nbsp;&nbsp; </span>internal static extern void CreateFile(string fileName);<br />
+			}</p>
+		<p class="Code">
+			[SuppressUnmanagedCode]<br />
+			class SafeNativeMethods
+			<br />
+			{<br />
+			<span style="mso-tab-count: 1;">&nbsp;&nbsp; </span>private SafeNativeMethods() {}</p>
+		<p class="Code">
+			<span style="mso-tab-count: 1;">&nbsp;&nbsp; </span>[DllImport(“user32”)]<br />
+			<span style="mso-tab-count: 1;">&nbsp;&nbsp; </span>internal static extern void MessageBox(string text);<br />
+			}</p>
+		<p class="MsoNormal">
+			All interop classes <b style="mso-bidi-font-weight: normal;">must</b> be private, and all methods must be <b style="mso-bidi-font-weight: normal;">internal</b>. In addition a private constructor should be provided to prevent instantiation.</p>
+		<h2 class="auto-style1"><a name="_Toc6325250"><span style="mso-fareast-font-family: Arial; mso-bidi-font-family: Arial;"><span style="mso-list: Ignore;">2.8 </span></span>File Organization</a></h2>
+		<ul style="margin-top: 0in;" type="disc">
+			<li class="MsoNormal" style="tab-stops: list .5in; mso-list: l13 level1 lfo36;">Source files should contain only one public type, although multiple internal classes are allowed </li>
+			<li class="MsoNormal" style="tab-stops: list .5in; mso-list: l13 level1 lfo36;">Source files should be given the name of the public class in the file </li>
+			<li class="MsoNormal" style="tab-stops: list .5in; mso-list: l13 level1 lfo36;">Directory names should follow the namespace for the class </li>
+		</ul>
+		<p class="MsoNormal">
+			For example, I would expect to find the public class “System.Windows.Forms.Control” in “System\Windows\Forms\Control.cs”…</p>
+		<ul style="margin-top: 0in;" type="disc">
+			<li class="MsoNormal" style="tab-stops: list .5in; mso-list: l7 level1 lfo39;">Classes member should be <b style="mso-bidi-font-weight: normal;">alphabetized</b>, and grouped into sections (Fields, Constructors, Properties, Events, Methods, Private interface implementations, Nested types) </li>
+			<li class="MsoNormal" style="tab-stops: list .5in; mso-list: l7 level1 lfo39;">Using statements should be inside the namespace declaration. </li>
+		</ul>
+		<p class="Code">
+			namespace MyNamespace
+			<br />
+			{</p>
+		<p class="Code" style="text-indent: 0.25in;">
+			using System;</p>
+		<p class="Code" style="margin-left: 0.75in;">
+			public class MyClass : IFoo
+			<br />
+			{</p>
+		<p class="Code">
+			<span style="mso-tab-count: 2;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>// fields<br />
+			<span style="mso-tab-count: 2;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>int foo;</p>
+		<p class="Code">
+			<span style="mso-tab-count: 2;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>// constructors<br />
+			<span style="mso-tab-count: 2;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>public MyClass() { … }</p>
+		<p class="Code">
+			<span style="mso-tab-count: 2;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>// properties<br />
+			<span style="mso-tab-count: 2;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>public int Foo { get { … } set { … } }</p>
+		<p class="Code">
+			<span style="mso-tab-count: 2;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>// events<br />
+			<span style="mso-tab-count: 2;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>public event EventHandler FooChanged { add { … } remove { … } }</p>
+		<p class="Code">
+			<span style="mso-tab-count: 2;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>// methods<br />
+			<span style="mso-tab-count: 2;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>void DoSomething() { … }<br />
+			<span style="mso-tab-count: 2;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>void FindSomethind() { … }</p>
+		<p class="Code" style="text-indent: 0.25in; margin-left: 0.75in;">
+			//private interface implementations<br />
+			<span style="mso-tab-count: 1;">&nbsp;&nbsp; </span>void IFoo.DoSomething() { DoSomething(); }</p>
+		<p class="Code" style="text-indent: 0.25in; margin-left: 0.75in;">
+			// nested types<br />
+			<span style="mso-tab-count: 1;">&nbsp;&nbsp; </span>class NestedType { … }</p>
+		<p class="Code" style="text-indent: 0.25in;">
+			}</p>
+		<p class="Code">
+			}</p>
+	</div>
+
+
+</body>
+</html>

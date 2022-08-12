@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{27E6CF32-FD87-4AE5-AFA2-FAD5CB86AE0C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MaxFactry.Core</RootNamespace>
+    <AssemblyName>MaxFactry.Core-NF-2.0</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;net2</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;net2</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>MaxFactry.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\Enum\MaxEnumGroup.cs" />
+    <Compile Include="Core\Exception\MaxException.cs" />
+    <Compile Include="Core\Factory\MaxByMethodFactory.cs" />
+    <Compile Include="Core\Factory\MaxMultipleFactory.cs" />
+    <Compile Include="Core\Factory\MaxSingleFactory.cs" />
+    <Compile Include="Core\Interface\IMaxProvider.cs" />
+    <Compile Include="Core\Library\Interface\IMaxSecurityLibraryProvider.cs" />
+    <Compile Include="Core\Library\Interface\IMaxCompressionLibraryProvider.cs" />
+    <Compile Include="Core\Library\Interface\IMaxConfigurationLibraryProvider.cs" />
+    <Compile Include="Core\Library\Interface\IMaxConvertLibraryProvider.cs" />
+    <Compile Include="Core\Library\Interface\IMaxEncryptionLibraryProvider.cs" />
+    <Compile Include="Core\Library\Interface\IMaxFactryLibraryProvider.cs" />
+    <Compile Include="Core\Library\Interface\IMaxLogLibraryProvider.cs" />
+    <Compile Include="Core\Library\Interface\IMaxMetaLibraryProvider.cs" />
+    <Compile Include="Core\Library\Interface\IMaxValidationLibraryProvider.cs" />
+    <Compile Include="Core\Library\MaxSecurityLibrary.cs" />
+    <Compile Include="Core\Library\MaxCompressionLibrary.cs" />
+    <Compile Include="Core\Library\MaxConfigurationLibrary.cs" />
+    <Compile Include="Core\Library\MaxConvertLibrary.cs" />
+    <Compile Include="Core\Library\MaxEncryptionLibrary.cs" />
+    <Compile Include="Core\Library\MaxFactryLibrary.cs" />
+    <Compile Include="Core\Library\MaxLogLibrary.cs" />
+    <Compile Include="Core\Library\MaxMetaLibrary.cs" />
+    <Compile Include="Core\Library\MaxValidationLibrary.cs" />
+    <Compile Include="Core\Library\Provider\MaxSecurityLibraryDefaultProvider.cs" />
+    <Compile Include="Core\Library\Provider\MaxCompressionLibraryDefaultProvider.cs" />
+    <Compile Include="Core\Library\Provider\MaxConfigurationLibraryDefaultProvider.cs" />
+    <Compile Include="Core\Library\Provider\MaxConvertLibraryDefaultProvider.cs" />
+    <Compile Include="Core\Library\Provider\MaxEncryptionLibraryDefaultProvider.cs" />
+    <Compile Include="Core\Library\Provider\MaxFactryLibraryDefaultProvider.cs" />
+    <Compile Include="Core\Library\Provider\MaxLogLibraryBaseProvider.cs" />
+    <Compile Include="Core\Library\Provider\MaxLogLibraryDefaultProvider.cs" />
+    <Compile Include="Core\Library\Provider\MaxMetaLibraryDefaultProvider.cs" />
+    <Compile Include="Core\Library\Provider\MaxValidationLibraryDefaultProvider.cs" />
+    <Compile Include="Core\MaxIndex.cs" />
+    <Compile Include="Core\MaxIndexCollection.cs" />
+    <Compile Include="Core\MaxIndexCollectionEnumerator.cs" />
+    <Compile Include="Core\MaxIndexEnumerator.cs" />
+    <Compile Include="Core\MaxMetaAttribute.cs" />
+    <Compile Include="Core\Provider\MaxProvider.cs" />
+    <Compile Include="Core\Structure\MaxLogEntryStructure.cs" />
+    <Compile Include="Core\Structure\MaxIndexItemStructure.cs" />
+    <Compile Include="Core\Structure\MaxSettingsStructure.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Documentation\Internal Coding Guidelines.html" />
+    <None Include="MaxFactry.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Documentation\Naming Conventions.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Documentation\Naming Guidelines.html" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

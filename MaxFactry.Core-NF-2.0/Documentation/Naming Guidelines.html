@@ -1,0 +1,2297 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Naming Guidelines</title>
+	<style type="text/css">
+		.LW_CollapsibleArea_TitleDiv {
+			font-family: 'Segoe UI Semibold','Segoe UI','Lucida Grande',Verdana,Arial,Helvetica,sans-serif;
+			font-size: 13px;
+		}
+
+		.LW_CollapsibleArea_TitleDiv {
+			margin-top: 9px;
+			margin-bottom: 19px;
+			padding: 0;
+		}
+
+		.LW_CollapsibleArea_TitleDiv {
+			font-family: 'Segoe UI Light','Segoe UI','Lucida Grande',Verdana,Arial,Helvetica,sans-serif!important;
+			font-size: 18px;
+			font-style: normal!important;
+			padding-top: 20px;
+			padding-bottom: 5px;
+		}
+
+			.LW_CollapsibleArea_TitleDiv div a,
+			.LW_CollapsibleArea_TitleDiv div a:link,
+			.LW_CollapsibleArea_TitleDiv div a:hover,
+			.LW_CollapsibleArea_TitleDiv div a:visited,
+			.LW_CollapsibleArea_TitleDiv div a:focus {
+				color: #000;
+			}
+
+				.LW_CollapsibleArea_TitleDiv DIV a:link,
+				.LW_CollapsibleArea_TitleDiv DIV a:hover,
+				.LW_CollapsibleArea_TitleDiv DIV a:visited,
+				.LW_CollapsibleArea_TitleDiv DIV a:focus {
+					color: #db7100;
+					text-decoration: none;
+				}
+
+		.topic a,
+		.topic a:link {
+			text-decoration: none;
+			color: #1364c4;
+		}
+
+			.topic a,
+			.topic a:link {
+				text-decoration: none;
+				color: #00709f;
+			}
+
+		a:link,
+		a:hover,
+		a:visited {
+			text-decoration: none;
+		}
+
+		.LW_CollapsibleArea_TitleAhref {
+			cursor: hand;
+			outline: none;
+		}
+
+		.LW_CollapsibleArea_TitleDiv a span {
+			display: block;
+			overflow: hidden;
+		}
+
+		.LW_CollapsibleArea_Img {
+			margin-top: 12px;
+		}
+
+		.cl_CollapsibleArea_expanding {
+			background: url('') no-repeat -421px -3px;
+			width: 9px;
+			height: 12px;
+			overflow: hidden;
+		}
+
+		.LW_CollapsibleArea_Img {
+			border-width: 0;
+			vertical-align: middle;
+			margin-bottom: 0;
+			float: left;
+			margin-top: 7px;
+			display: inline-block;
+		}
+
+		.LW_CollapsibleArea_Title {
+			font-family: 'Segoe UI','Lucida Grande',Verdana,Arial,Helvetica,sans-serif;
+		}
+
+		.LW_CollapsibleArea_Title {
+			padding-left: 10px;
+		}
+
+		.LW_CollapsibleArea_HrDiv {
+			padding-top: 0;
+		}
+
+		.LW_CollapsibleArea_Hr {
+			border-style: none;
+			color: #e5e5e5;
+		}
+
+		.sectionblock {
+			padding-left: 15px;
+			display: block;
+			padding-bottom: 20px;
+		}
+
+		#mainBody ul li {
+			list-style-image: none;
+		}
+
+		.code {
+			font-family: Consolas,Courier,monospace;
+			color: #006400;
+		}
+
+		.input,
+		.label {
+			font-weight: 700;
+		}
+
+		div#content table,
+		div#content th,
+		div#content td {
+			border: 1px solid #bbb;
+		}
+
+		div#content table {
+			width: 100%;
+		}
+
+		table {
+			padding: 0;
+		}
+
+		table {
+			border-collapse: collapse;
+			padding-bottom: 20px;
+			padding-top: 20px;
+		}
+
+		th {
+			background-color: #ededed;
+			color: #636363;
+			text-align: left;
+		}
+
+		td,
+		th {
+			border-bottom: 1px solid #dbdbdb;
+			margin: 10px;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			padding-right: 8px;
+			padding-left: 8px;
+		}
+
+		td {
+			color: #2a2a2a;
+			vertical-align: top;
+		}
+
+		.auto-style1 {
+			font-family: "Segoe UI Semibold", "Segoe UI", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+			color: #000;
+			font-size: 1.769em;
+		}
+
+		.parameter {
+			font-style: italic;
+		}
+
+		.codeSnippetContainer {
+			min-width: 260px;
+			clear: both;
+		}
+
+		.codeSnippetContainerTabs {
+			vertical-align: middle;
+			height: 23px;
+			position: relative;
+			z-index: 1;
+		}
+
+		.codeSnippetContainerCodeContainer {
+			border-left: solid 1px #939393;
+			border-bottom: solid 1px #939393;
+			border-right: solid 1px #939393;
+			border-top: solid 1px #939393;
+			clear: both;
+			margin-bottom: 12px;
+			position: relative;
+			top: -1px;
+		}
+
+		.codeSnippetToolBar {
+			width: auto;
+			height: auto;
+		}
+
+		.codeSnippetToolBarText {
+			float: right;
+			top: -8px;
+			position: relative;
+			background-color: #fff;
+			width: auto;
+			padding-left: 0;
+			padding-right: 0;
+			height: 0;
+			vertical-align: top;
+		}
+
+		.codeSnippetContainerCode {
+			width: auto;
+			margin: 0;
+			padding-right: 21px;
+			padding-left: 21px;
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+
+			.codeSnippetContainerCode pre {
+				padding: 5px;
+				margin: 0;
+				font-family: Consolas,Courier,monospace!important;
+				font-style: normal;
+				font-weight: normal;
+				overflow: auto;
+				word-wrap: normal;
+			}
+	.cs__com { color: green; }
+.cs__keyword { color: #3A3AFF; font-weight: bold; }
+.cs__string { color: maroon; }
+		.auto-style2 {
+			font-size: 100%;
+			vertical-align: baseline;
+			border-style: none;
+			border-color: inherit;
+			border-width: 0;
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<div>From: http://msdn.microsoft.com/en-us/library/ms229002.aspx
+	</div>
+	<h1>Naming Guidelines</h1>
+
+	<h2>Capitalization Conventions</h2>
+	<div class="introduction">
+		<p>
+			The guidelines in this chapter lay out a simple method for using case that, when applied consistently, make identifiers for types, members, and parameters easy to read.
+		</p>
+	</div>
+	<div>
+		<div class="LW_CollapsibleArea_TitleDiv">
+			<div>
+				<a class="LW_CollapsibleArea_TitleAhref" href="javascript:void(0)" title="Click to collapse. Double-click to collapse all."><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="auto-style1">Capitalization Rules for Identifiers</span></a>
+				<div class="LW_CollapsibleArea_HrDiv">
+					<hr class="LW_CollapsibleArea_Hr" />
+				</div>
+			</div>
+		</div>
+		<div class="sectionblock">
+			<a id="sectionToggle0"></a>
+			<p>
+				To differentiate words in an identifier, capitalize the first letter of each word in the identifier. Do not use underscores to differentiate words, or for that matter, anywhere in identifiers. There are two appropriate ways to capitalize identifiers, depending on the use of the identifier:
+			</p>
+			<ul>
+				<li>
+					<p>
+						PascalCasing
+					</p>
+				</li>
+				<li>
+					<p>
+						camelCasing
+					</p>
+				</li>
+			</ul>
+			<p>
+				The PascalCasing convention, used for all identifiers except parameter names, capitalizes the first character of each word (including acronyms over two letters in length), as shown in the following examples:
+			</p>
+			<p>
+				<span class="code">PropertyDescriptor</span>
+				<br />
+				<span class="code">HtmlTag</span>
+			</p>
+			<p>
+				A special case is made for two-letter acronyms in which both letters are capitalized, as shown in the following identifier:
+			</p>
+			<p>
+				<span class="code">IOStream</span>
+			</p>
+			<p>
+				The camelCasing convention, used only for parameter names, capitalizes the first character of each word except the first word, as shown in the following examples. As the example also shows, two-letter acronyms that begin a camel-cased identifier are both lowercase.
+			</p>
+			<p>
+				<span class="code">propertyDescriptor</span>
+				<br />
+				<span class="code">ioStream</span>
+				<br />
+				<span class="code">htmlTag</span>
+			</p>
+			<p>
+				<span class="label">√ DO</span> use PascalCasing for all public member, type, and namespace names consisting of multiple words.
+			</p>
+			<p>
+				<span class="label">√ DO</span> use camelCasing for parameter names.
+			</p>
+			<p>
+				The following table describes the capitalization rules for different types of identifiers.
+			</p>
+			<div class="caption">
+			</div>
+			<div class="tableSection">
+				<table>
+					<tr>
+						<th>
+							<p>
+								Identifier
+							</p>
+						</th>
+						<th>
+							<p>
+								Casing
+							</p>
+						</th>
+						<th>
+							<p>
+								Example
+							</p>
+						</th>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								Namespace
+							</p>
+						</td>
+						<td>
+							<p>
+								Pascal
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">namespace System.Security&nbsp;{ ... }</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								Type
+							</p>
+						</td>
+						<td>
+							<p>
+								Pascal
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">public class StreamReader { ... }</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								Interface
+							</p>
+						</td>
+						<td>
+							<p>
+								Pascal
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">public interface IEnumerable { ... }</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								Method
+							</p>
+						</td>
+						<td>
+							<p>
+								Pascal
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">public class Object {</span>
+								<br />
+								<span class="code">public virtual string ToString();</span><br />
+								<span class="code">}</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								Property
+							</p>
+						</td>
+						<td>
+							<p>
+								Pascal
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">public class String {</span>
+								<br />
+								<span class="code">public int Length { get; }</span><br />
+								<span class="code">}</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								Event
+							</p>
+						</td>
+						<td>
+							<p>
+								Pascal
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">public class Process {</span>
+								<br />
+								<span class="code">public event EventHandler Exited;</span><br />
+								<span class="code">}</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								Field
+							</p>
+						</td>
+						<td>
+							<p>
+								Pascal
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">public class MessageQueue {</span>
+								<br />
+								<span class="code">public static readonly TimeSpan</span><br />
+								<span class="code">InfiniteTimeout;</span><br />
+								<span class="code">}</span><br />
+								<span class="code">public struct UInt32 {</span><br />
+								<span class="code">public const Min = 0;</span><br />
+								<span class="code">}</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								Enum value
+							</p>
+						</td>
+						<td>
+							<p>
+								Pascal
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">public enum FileMode {</span>
+								<br />
+								<span class="code">Append,</span><br />
+								<span class="code">...</span><br />
+								<span class="code">}</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								Parameter
+							</p>
+						</td>
+						<td>
+							<p>
+								Camel
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">public class Convert {</span>
+								<br />
+								<span class="code">public static int ToInt32(string value);</span><br />
+								<span class="code">}</span>
+							</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div>
+		<div class="LW_CollapsibleArea_TitleDiv">
+			<div>
+				<a class="LW_CollapsibleArea_TitleAhref" href="javascript:void(0)" title="Click to collapse. Double-click to collapse all."><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="auto-style1">Capitalizing Compound Words and Common Terms</span></a>
+				<div class="LW_CollapsibleArea_HrDiv">
+					<hr class="LW_CollapsibleArea_Hr" />
+				</div>
+			</div>
+		</div>
+		<div class="sectionblock">
+			<a id="sectionToggle1"></a>
+			<p>
+				Most compound terms are treated as single words for purposes of capitalization.
+			</p>
+			<p>
+				<span class="label">X DO NOT</span> capitalize each word in so-called closed-form compound words.
+			</p>
+			<p>
+				These are compound words written as a single word, such as endpoint. For the purpose of casing guidelines, treat a closed-form compound word as a single word. Use a current dictionary to determine if a compound word is written in closed form.
+			</p>
+			<div class="caption">
+			</div>
+			<div class="tableSection">
+				<table>
+					<tr>
+						<th>
+							<p>
+								Pascal
+							</p>
+						</th>
+						<th>
+							<p>
+								Camel
+							</p>
+						</th>
+						<th>
+							<p>
+								Not
+							</p>
+						</th>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">BitFlag</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">bitFlag</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">Bitflag</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">Callback</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">callback</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">CallBack</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">Canceled</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">canceled</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">Cancelled</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">DoNot</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">doNot</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">Don&#39;t</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">Email</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">email</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">EMail</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">Endpoint</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">endpoint</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">EndPoint</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">FileName</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">fileName</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">Filename</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">Gridline</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">gridline</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">GridLine</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">Hashtable</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">hashtable</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">HashTable</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">Id</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">id</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">ID</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">Indexes</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">indexes</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">Indices</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">LogOff</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">logOff</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">LogOut</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">LogOn</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">logOn</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">LogIn</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">Metadata</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">metadata</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">MetaData, metaData</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">Multipanel</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">multipanel</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">MultiPanel</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">Multiview</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">multiview</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">MultiView</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">Namespace</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">namespace</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">NameSpace</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">Ok</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">ok</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">OK</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">Pi</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">pi</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">PI</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">Placeholder</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">placeholder</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">PlaceHolder</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">SignIn</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">signIn</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">SignOn</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">SignOut</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">signOut</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">SignOff</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">UserName</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">userName</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">Username</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">WhiteSpace</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">whiteSpace</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">Whitespace</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">Writable</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">writable</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="code">Writeable</span>
+							</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div>
+		<div class="LW_CollapsibleArea_TitleDiv">
+			<div>
+				<a class="LW_CollapsibleArea_TitleAhref" href="javascript:void(0)" title="Click to collapse. Double-click to collapse all."><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="auto-style1">Case Sensitivity</span></a>
+				<div class="LW_CollapsibleArea_HrDiv">
+					<hr class="LW_CollapsibleArea_Hr" />
+				</div>
+			</div>
+		</div>
+		<div class="sectionblock">
+			<a id="sectionToggle2"></a>
+			<p>
+				Languages that can run on the CLR are not required to support case-sensitivity, although some do. Even if your language supports it, other languages that might access your framework do not. Any APIs that are externally accessible, therefore, cannot rely on case alone to distinguish between two names in the same context.
+			</p>
+			<p>
+				<span class="label">X DO NOT</span> assume that all programming languages are case sensitive. They are not. Names cannot differ by case alone.
+			</p>
+		</div>
+	</div>
+
+	<p>
+		General Naming Conventions
+	</p>
+	<div class="introduction">
+		<p>
+			This section describes general naming conventions that relate to word choice, guidelines on using abbreviations and acronyms, and recommendations on how to avoid using language-specific names.
+		</p>
+	</div>
+	<div>
+		<div class="LW_CollapsibleArea_TitleDiv">
+			<div>
+				<a class="LW_CollapsibleArea_TitleAhref" href="javascript:void(0)" title="Click to collapse. Double-click to collapse all."><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Word Choice</span></a>
+				<div class="LW_CollapsibleArea_HrDiv">
+					<hr class="LW_CollapsibleArea_Hr" />
+				</div>
+			</div>
+		</div>
+		<div class="sectionblock">
+			<a id="sectionToggle4"></a>
+			<p>
+				<span class="label">√ DO</span> choose easily readable identifier names.
+			</p>
+			<p>
+				For example, a property named <span class="code">HorizontalAlignment</span> is more English-readable than <span class="code">AlignmentHorizontal</span>.
+			</p>
+			<p>
+				<span class="label">√ DO</span> favor readability over brevity.
+			</p>
+			<p>
+				The property name <span class="code">CanScrollHorizontally</span> is better than <span class="code">ScrollableX</span> (an obscure reference to the X-axis).
+			</p>
+			<p>
+				<span class="label">X DO NOT</span> use underscores, hyphens, or any other nonalphanumeric characters.
+			</p>
+			<p>
+				<span class="label">X DO NOT</span> use Hungarian notation.
+			</p>
+			<p>
+				<span class="label">X AVOID</span> using identifiers that conflict with keywords of widely used programming languages.
+			</p>
+			<p>
+				According to Rule 4 of the Common Language Specification (CLS), all compliant languages must provide a mechanism that allows access to named items that use a keyword of that language as an identifier. C#, for example, uses the @ sign as an escape mechanism in this case. However, it is still a good idea to avoid common keywords because it is much more difficult to use a method with the escape sequence than one without it.
+			</p>
+		</div>
+	</div>
+	<div>
+		<div class="LW_CollapsibleArea_TitleDiv">
+			<div>
+				<a class="LW_CollapsibleArea_TitleAhref" href="javascript:void(0)" title="Click to collapse. Double-click to collapse all."><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Using Abbreviations and Acronyms</span></a>
+				<div class="LW_CollapsibleArea_HrDiv">
+					<hr class="LW_CollapsibleArea_Hr" />
+				</div>
+			</div>
+		</div>
+		<div class="sectionblock">
+			<a id="sectionToggle5"></a>
+			<p>
+				<span class="label">X DO NOT</span> use abbreviations or contractions as part of identifier names.
+			</p>
+			<p>
+				For example, use <span class="code">GetWindow</span> rather than <span class="code">GetWin</span>.
+			</p>
+			<p>
+				<span class="label">X DO NOT</span> use any acronyms that are not widely accepted, and even if they are, only when necessary.
+			</p>
+		</div>
+	</div>
+	<div>
+		<div class="LW_CollapsibleArea_TitleDiv">
+			<div>
+				<a class="LW_CollapsibleArea_TitleAhref" href="javascript:void(0)" title="Click to collapse. Double-click to collapse all."><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Avoiding Language-Specific Names</span></a>
+				<div class="LW_CollapsibleArea_HrDiv">
+					<hr class="LW_CollapsibleArea_Hr" />
+				</div>
+			</div>
+		</div>
+		<div class="sectionblock">
+			<a id="sectionToggle6"></a>
+			<p>
+				<span class="label">√ DO</span> use semantically interesting names rather than language-specific keywords for type names.
+			</p>
+			<p>
+				For example, <span class="code">GetLength</span> is a better name than <span class="code">GetInt</span>.
+			</p>
+			<p>
+				<span class="label">√ DO</span> use a generic CLR type name, rather than a language-specific name, in the rare cases when an identifier has no semantic meaning beyond its type.
+			</p>
+			<p>
+				For example, a method converting to <span><a href="http://msdn.microsoft.com/en-us/library/system.int64(v=vs.110).aspx">Int64</a></span> should be named <span class="code">ToInt64</span>, not <span class="code">ToLong</span> (because <span><a href="http://msdn.microsoft.com/en-us/library/system.int64(v=vs.110).aspx">Int64</a></span> is a CLR name for the C#-specific alias <span><span class="input">long</span></span>). The following table presents several base data types using the CLR type names (as well as the corresponding type names for C#, Visual Basic, and C++).
+			</p>
+			<div class="caption">
+			</div>
+			<div class="tableSection">
+				<table>
+					<tr>
+						<th>
+							<p>
+								C#
+							</p>
+						</th>
+						<th>
+							<p>
+								Visual Basic
+							</p>
+						</th>
+						<th>
+							<p>
+								C++
+							</p>
+						</th>
+						<th>
+							<p>
+								CLR
+							</p>
+						</th>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<strong>sbyte</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>SByte</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>char</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>SByte</strong>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<strong>byte</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>Byte</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>unsigned char</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>Byte</strong>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<strong>short</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>Short</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>short</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>Int16</strong>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<strong>ushort</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>UInt16</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>unsigned short</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>UInt16</strong>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<strong>int</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>Integer</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>int</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>Int32</strong>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<strong>uint</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>UInt32</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>unsigned int</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>UInt32</strong>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<strong>long</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>Long</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>__int64</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>Int64</strong>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<strong>ulong</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>UInt64</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>unsigned __int64</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>UInt64</strong>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<strong>float</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>Single</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>float</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>Single</strong>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<strong>double</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>Double</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>double</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>Double</strong>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<strong>bool</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>Boolean</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>bool</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>Boolean</strong>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<strong>char</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>Char</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>wchar_t</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>Char</strong>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<strong>string</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>String</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>String</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>String</strong>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<strong>object</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>Object</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>Object</strong>
+							</p>
+						</td>
+						<td>
+							<p>
+								<strong>Object</strong>
+							</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<p>
+			</p>
+			<p>
+				<span class="label">√ DO </span>use a common name, such as <span class="parameter">value</span> or <span class="parameter">item</span>, rather than repeating the type name, in the rare cases when an identifier has no semantic meaning and the type of the parameter is not important.
+			</p>
+		</div>
+	</div>
+	<div>
+		<div class="LW_CollapsibleArea_TitleDiv">
+			<div>
+				<a class="LW_CollapsibleArea_TitleAhref" href="javascript:void(0)" title="Click to collapse. Double-click to collapse all."><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Naming New Versions of Existing APIs</span></a>
+				<div class="LW_CollapsibleArea_HrDiv">
+					<hr class="LW_CollapsibleArea_Hr" />
+				</div>
+			</div>
+		</div>
+		<div class="sectionblock">
+			<a id="sectionToggle3"></a>
+			<p>
+				<span class="label">√ DO</span> use a name similar to the old API when creating new versions of an existing API.
+			</p>
+			<p>
+				This helps to highlight the relationship between the APIs.
+			</p>
+			<p>
+				<span class="label">√ DO</span> prefer adding a suffix rather than a prefix to indicate a new version of an existing API.
+			</p>
+			<p>
+				This will assist discovery when browsing documentation, or using Intellisense. The old version of the API will be organized close to the new APIs, because most browsers and Intellisense show identifiers in alphabetical order.
+			</p>
+			<p>
+				<span class="label">√ CONSIDER</span> using a brand new, but meaningful identifier, instead of adding a suffix or a prefix.
+			</p>
+			<p>
+				<span class="label">√ DO</span> use a numeric suffix to indicate a new version of an existing API, particularly if the existing name of the API is the only name that makes sense (i.e., if it is an industry standard) and if adding any meaningful suffix (or changing the name) is not an appropriate option.
+			</p>
+			<p>
+				<span class="label">X DO NOT</span> use the &quot;Ex&quot; (or a similar) suffix for an identifier to distinguish it from an earlier version of the same API.
+			</p>
+			<p>
+				<span class="label">√ DO</span> use the &quot;64&quot; suffix when introducing versions of APIs that operate on a 64-bit integer (a long integer) instead of a 32-bit integer. You only need to take this approach when the existing 32-bit API exists; don’t do it for brand new APIs with only a 64-bit version.
+			</p>
+		</div>
+	</div>
+	<p>
+		Names of Assemblies and DLLs
+	</p>
+	<div class="introduction">
+		<p>
+			An assembly is the unit of deployment and identity for managed code programs. Although assemblies can span one or more files, typically an assembly maps one-to-one with a DLL. Therefore, this section describes only DLL naming conventions, which then can be mapped to assembly naming conventions.
+		</p>
+	</div>
+	<div id="sectionSection0" class="seeAlsoNoToggleSection">
+		<p>
+			<span class="label">√ DO</span> choose names for your assembly DLLs that suggest large chunks of functionality, such as System.Data.
+		</p>
+		<p>
+			Assembly and DLL names don’t have to correspond to namespace names, but it is reasonable to follow the namespace name when naming assemblies. A good rule of thumb is to name the DLL based on the common prefix of the assemblies contained in the assembly. For example, an assembly with two namespaces, <span class="code">MyCompany.MyTechnology.FirstFeature</span> and <span class="code">MyCompany.MyTechnology.SecondFeature</span>, could be called <span class="code">MyCompany.MyTechnology.dll</span>.
+		</p>
+		<p>
+			<span class="label">√ CONSIDER</span> naming DLLs according to the following pattern:
+		</p>
+		<p>
+			<span class="code">&lt;Company&gt;.&lt;Component&gt;.dll</span>
+		</p>
+		<p>
+			where <span class="code">&lt;Component&gt;</span> contains one or more dot-separated clauses. For example:
+		</p>
+		<p>
+			<span class="code">Litware.Controls.dll</span>.
+		</p>
+	</div>
+	<p>
+		Names of Namespaces
+	</p>
+	<p>
+		&nbsp;
+	</p>
+	<div class="introduction">
+		<p>
+			As with other naming guidelines, the goal when naming namespaces is creating sufficient clarity for the programmer using the framework to immediately know what the content of the namespace is likely to be. The following template specifies the general rule for naming namespaces:
+		</p>
+		<p>
+			<span class="code">&lt;Company&gt;.(&lt;Product&gt;|&lt;Technology&gt;)[.&lt;Feature&gt;][.&lt;Subnamespace&gt;]</span>
+		</p>
+		<p>
+			The following are examples:
+		</p>
+		<p>
+			<span class="code">Fabrikam.Math</span>
+			<br />
+			<span class="code">Litware.Security</span>
+		</p>
+	</div>
+	<div id="sectionSection1" class="seeAlsoNoToggleSection">
+		<p>
+			<span class="label">√ DO</span> prefix namespace names with a company name to prevent namespaces from different companies from having the same name.
+		</p>
+		<p>
+			<span class="label">√ DO</span> use a stable, version-independent product name at the second level of a namespace name.
+		</p>
+		<p>
+			<span class="label">X DO NOT</span> use organizational hierarchies as the basis for names in namespace hierarchies, because group names within corporations tend to be short-lived. Organize the hierarchy of namespaces around groups of related technologies.
+		</p>
+		<p>
+			<span class="label">√ DO</span> use PascalCasing, and separate namespace components with periods (e.g., <span class="code">Microsoft.Office.PowerPoint</span>). If your brand employs nontraditional casing, you should follow the casing defined by your brand, even if it deviates from normal namespace casing.
+		</p>
+		<p>
+			<span class="label">√ CONSIDER</span> using plural namespace names where appropriate.
+		</p>
+		<p>
+			For example, use <span class="code">System.Collections</span> instead of <span class="code">System.Collection</span>. Brand names and acronyms are exceptions to this rule, however. For example, use <span class="code">System.IO</span> instead of <span class="code">System.IOs</span>.
+		</p>
+		<p>
+			<span class="label">X DO NOT</span> use the same name for a namespace and a type in that namespace.
+		</p>
+		<p>
+			For example, do not use <span class="code">Debug</span> as a namespace name and then also provide a class named <span class="code">Debug</span> in the same namespace. Several compilers require such types to be fully qualified.
+		</p>
+		<div>
+			<div class="LW_CollapsibleArea_TitleDiv">
+				<div>
+					<a class="LW_CollapsibleArea_TitleAhref" href="javascript:void(0)" title="Click to collapse. Double-click to collapse all."><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Namespaces and Type Name Conflicts</span></a>
+					<div class="LW_CollapsibleArea_HrDiv">
+						<hr class="LW_CollapsibleArea_Hr" />
+					</div>
+				</div>
+			</div>
+			<div class="sectionblock">
+				<a id="sectionToggle7"></a>
+				<p>
+					<span class="label">X DO NOT</span> introduce generic type names such as <span class="code">Element</span>, <span class="code">Node</span>, <span class="code">Log</span>, and <span class="code">Message</span>.
+				</p>
+				<p>
+					There is a very high probability that doing so will lead to type name conflicts in common scenarios. You should qualify the generic type names (<span class="code">FormElement</span>, <span class="code">XmlNode</span>, <span class="code">EventLog</span>, <span class="code">SoapMessage</span>).
+				</p>
+				<p>
+					There are specific guidelines for avoiding type name conflicts for different categories of namespaces.
+				</p>
+				<ul>
+					<li>
+						<p>
+							<span class="label">Application model namespaces</span>
+						</p>
+						<p>
+							Namespaces belonging to a single application model are very often used together, but they are almost never used with namespaces of other application models. For example, the <span><a href="http://msdn.microsoft.com/en-us/library/system.windows.forms(v=vs.110).aspx">System.Windows.Forms</a></span> namespace is very rarely used together with the <span><a href="http://msdn.microsoft.com/en-us/library/system.web.ui(v=vs.110).aspx">System.Web.UI</a></span> namespace. The following is a list of well-known application model namespace groups:
+						</p>
+						<p>
+							<span class="code">System.Windows*</span>
+							<br />
+							<span class="code">System.Web.UI*</span>
+						</p>
+						<p>
+							<span class="label">X DO NOT</span> give the same name to types in namespaces within a single application model.
+						</p>
+						<p>
+							For example, do not add a type named <span class="code">Page</span> to the <span><a href="http://msdn.microsoft.com/en-us/library/system.web.ui.adapters(v=vs.110).aspx">System.Web.UI.Adapters</a></span> namespace, because the <span><a href="http://msdn.microsoft.com/en-us/library/system.web.ui(v=vs.110).aspx">System.Web.UI</a></span> namespace already contains a type named <span class="code">Page</span>.
+						</p>
+					</li>
+					<li>
+						<p>
+							<span class="label">Infrastructure namespaces</span>
+						</p>
+						<p>
+							This group contains namespaces that are rarely imported during development of common applications. For example, <span class="code">.Design</span> namespaces are mainly used when developing programming tools. Avoiding conflicts with types in these namespaces is not critical.
+						</p>
+					</li>
+					<li>
+						<p>
+							<span class="label">Core namespaces</span>
+						</p>
+						<p>
+							Core namespaces include all <span class="code">System</span> namespaces, excluding namespaces of the application models and the Infrastructure namespaces. Core namespaces include, among others, <span class="code">System</span>, <span class="code">System.IO</span>, <span class="code">System.Xml</span>, and <span class="code">System.Net</span>.
+						</p>
+						<p>
+							<span class="label">X DO NOT</span> give types names that would conflict with any type in the Core namespaces.
+						</p>
+						<p>
+							For example, never use <span class="code">Stream</span> as a type name. It would conflict with <span><a href="http://msdn.microsoft.com/en-us/library/system.io.stream(v=vs.110).aspx">System.IO<span xmlns="">.</span>Stream</a></span>, a very commonly used type.
+						</p>
+					</li>
+					<li>
+						<p>
+							<span class="label">Technology namespace groups</span>
+						</p>
+						<p>
+							This category includes all namespaces with the same first two namespace nodes <span class="code">(&lt;Company&gt;.&lt;Technology&gt;*</span>), such as <span class="code">Microsoft.Build.Utilities</span> and <span class="code">Microsoft.Build.Tasks</span>. It is important that types belonging to a single technology do not conflict with each other.
+						</p>
+						<p>
+							<span class="label">X DO NOT</span> assign type names that would conflict with other types within a single technology.
+						</p>
+						<p>
+							<span class="label">X DO NOT</span> introduce type name conflicts between types in technology namespaces and an application model namespace (unless the technology is not intended to be used with the application model).
+						</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<p>
+		Names of Classes, Structs, and Interfaces
+	</p>
+	<div class="introduction">
+		<p>
+			The naming guidelines that follow apply to general type naming.
+		</p>
+	</div>
+	<div id="sectionSection2" class="seeAlsoNoToggleSection">
+		<p>
+			<span class="label">√ DO</span> name classes and structs with nouns or noun phrases, using PascalCasing.
+		</p>
+		<p>
+			This distinguishes type names from methods, which are named with verb phrases.
+		</p>
+		<p>
+			<span class="label">√ DO</span> name interfaces with adjective phrases, or occasionally with nouns or noun phrases.
+		</p>
+		<p>
+			Nouns and noun phrases should be used rarely and they might indicate that the type should be an abstract class, and not an interface.
+		</p>
+		<p>
+			<span class="label">X DO NOT</span> give class names a prefix (e.g., &quot;C&quot;).
+		</p>
+		<p>
+			<span class="label">√ CONSIDER</span> ending the name of derived classes with the name of the base class.
+		</p>
+		<p>
+			This is very readable and explains the relationship clearly. Some examples of this in code are: <span class="code">ArgumentOutOfRangeException</span>, which is a kind of <span class="code">Exception</span>, and <span class="code">SerializableAttribute</span>, which is a kind of <span class="code">Attribute</span>. However, it is important to use reasonable judgment in applying this guideline; for example, the <span class="code">Button</span> class is a kind of <span class="code">Control</span> event, although <span class="code">Control</span> doesn’t appear in its name.
+		</p>
+		<p>
+			<span class="label">√ DO</span> prefix interface names with the letter I, to indicate that the type is an interface.
+		</p>
+		<p>
+			For example, <span class="code">IComponent</span> (descriptive noun), <span class="code">ICustomAttributeProvider</span> (noun phrase), and <span class="code">IPersistable</span> (adjective) are appropriate interface names. As with other type names, avoid abbreviations.
+		</p>
+		<p>
+			<span class="label">√ DO</span> ensure that the names differ only by the &quot;I&quot; prefix on the interface name when you are defining a class–interface pair where the class is a standard implementation of the interface.
+		</p>
+	</div>
+	<div>
+		<div class="LW_CollapsibleArea_TitleDiv">
+			<div>
+				<a class="LW_CollapsibleArea_TitleAhref" href="javascript:void(0)" title="Click to collapse. Double-click to collapse all."><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Names of Generic Type Parameters</span></a>
+				<div class="LW_CollapsibleArea_HrDiv">
+					<hr class="LW_CollapsibleArea_Hr" />
+				</div>
+			</div>
+		</div>
+		<div class="sectionblock">
+			<a id="sectionToggle8"></a>
+			<p>
+				Generics were added to .NET Framework 2.0. The feature introduced a new kind of identifier called <span class="parameter">type parameter</span>.
+			</p>
+			<p>
+				<span class="label">√ DO</span> name generic type parameters with descriptive names unless a single-letter name is completely self-explanatory and a descriptive name would not add value.
+			</p>
+			<p>
+				<span class="label">√ CONSIDER</span> using <span class="code">T</span> as the type parameter name for types with one single-letter type parameter.
+			</p>
+			<div id="code-snippet-1" class="codeSnippetContainer" xmlns="">
+				<div class="codeSnippetContainerTabs">
+				</div>
+				<div class="codeSnippetContainerCodeContainer">
+					<div class="codeSnippetToolBar">
+						<div class="codeSnippetToolBarText">
+							<a href="javascript:if (window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode_f95379c5-751d-4a18-acf8-078ea5805ca0');" name="CodeSnippetCopyLink" title="Copy to clipboard.">Copy</a>
+						</div>
+					</div>
+					<div id="CodeSnippetContainerCode_f95379c5-751d-4a18-acf8-078ea5805ca0" class="codeSnippetContainerCode" dir="ltr">
+						<div>
+							<pre>public int IComparer&lt;T&gt; { ... }
+public delegate bool Predicate&lt;T&gt;(T item);
+public struct Nullable&lt;T&gt; where T:struct { ... }
+</pre>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p>
+				<span class="label">√ DO</span> prefix descriptive type parameter names with <span class="code">T</span>.
+			</p>
+			<div id="code-snippet-2" class="codeSnippetContainer" xmlns="">
+				<div class="codeSnippetContainerTabs">
+				</div>
+				<div class="codeSnippetContainerCodeContainer">
+					<div class="codeSnippetToolBar">
+						<div class="codeSnippetToolBarText">
+							<a href="javascript:if (window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode_fff7a18d-af61-474b-839a-9eae53706ba3');" name="CodeSnippetCopyLink" title="Copy to clipboard.">Copy</a>
+						</div>
+					</div>
+					<div id="CodeSnippetContainerCode_fff7a18d-af61-474b-839a-9eae53706ba3" class="codeSnippetContainerCode" dir="ltr">
+						<div>
+							<pre>public interface ISessionChannel&lt;TSession&gt; where TSession : ISession{
+    TSession Session { get; }
+}
+</pre>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p>
+				<span class="label">√ CONSIDER</span> indicating constraints placed on a type parameter in the name of the parameter.
+			</p>
+			<p>
+				For example, a parameter constrained to <span class="code">ISession</span> might be called <span class="code">TSession</span>.
+			</p>
+		</div>
+	</div>
+	<div>
+		<div class="LW_CollapsibleArea_TitleDiv">
+			<div>
+				<a class="LW_CollapsibleArea_TitleAhref" href="javascript:void(0)" title="Click to collapse. Double-click to collapse all."><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Names of Common Types</span></a>
+				<div class="LW_CollapsibleArea_HrDiv">
+					<hr class="LW_CollapsibleArea_Hr" />
+				</div>
+			</div>
+		</div>
+		<div class="sectionblock">
+			<a id="sectionToggle9"></a>
+			<p>
+				<span class="label">√ DO</span> follow the guidelines described in the following table when naming types derived from or implementing certain .NET Framework types.
+			</p>
+			<div class="caption">
+			</div>
+			<div class="tableSection">
+				<table>
+					<tr>
+						<th>
+							<p>
+								Base Type
+							</p>
+						</th>
+						<th>
+							<p>
+								Derived/Implementing Type Guideline
+							</p>
+						</th>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">System.Attribute</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="label">√ DO</span> add the suffix &quot;Attribute&quot; to names of custom attribute classes. add the suffix &quot;Attribute&quot; to names of custom attribute classes.
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">System.Delegate</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="label">√ DO</span> add the suffix &quot;EventHandler&quot; to names of delegates that are used in events.
+							</p>
+							<p>
+								<span class="label">√ DO</span> add the suffix &quot;Callback&quot; to names of delegates other than those used as event handlers.
+							</p>
+							<p>
+								<span class="label">X DO NOT</span> add the suffix &quot;Delegate&quot; to a delegate.
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">System.EventArgs</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="label">√ DO</span> add the suffix &quot;EventArgs.”
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">System.Enum</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="label">X DO NOT</span> derive from this class; use the keyword supported by your language instead; for example, in C#, use the enum keyword.
+							</p>
+							<p>
+								<span class="label">X DO NOT</span> add the suffix &quot;Enum&quot; or &quot;Flag.”
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">System.Exception</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="label">√ DO</span> add the suffix &quot;Exception.”
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">IDictionary</span>
+								<br />
+								<span class="code">IDictionary&lt;TKey,TValue&gt;</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="label">√ DO</span> add the suffix &quot;Dictionary.&quot; Note that <span class="code">IDictionary</span> is a specific type of collection, but this guideline takes precedence over the more general collections guideline that follows.
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">IEnumerable</span>
+								<br />
+								<span class="code">ICollection</span><br />
+								<span class="code">IList</span><br />
+								<span class="code">IEnumerable&lt;T&gt;</span><br />
+								<span class="code">ICollection&lt;T&gt;</span><br />
+								<span class="code">IList&lt;T&gt;</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="label">√ DO</span> add the suffix &quot;Collection.”
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">System.IO.Stream</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="label">√ DO</span> add the suffix &quot;Stream.”
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>
+								<span class="code">CodeAccessPermission IPermission</span>
+							</p>
+						</td>
+						<td>
+							<p>
+								<span class="label">√ DO</span> add the suffix &quot;Permission.”
+							</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div>
+		<div class="LW_CollapsibleArea_TitleDiv">
+			<div>
+				<a class="LW_CollapsibleArea_TitleAhref" href="javascript:void(0)" title="Click to collapse. Double-click to collapse all."><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Naming Enumerations</span></a>
+				<div class="LW_CollapsibleArea_HrDiv">
+					<hr class="LW_CollapsibleArea_Hr" />
+				</div>
+			</div>
+		</div>
+		<div class="sectionblock">
+			<a id="sectionToggle10"></a>
+			<p>
+				Names of enumeration types (also called enums) in general should follow the standard type-naming rules (PascalCasing, etc.). However, there are additional guidelines that apply specifically to enums.
+			</p>
+			<p>
+				<span class="label">√ DO</span> use a singular type name for an enumeration unless its values are bit fields.
+			</p>
+			<p>
+				<span class="label">√ DO</span> use a plural type name for an enumeration with bit fields as values, also called flags enum.
+			</p>
+			<p>
+				<span class="label">X DO NOT</span> use an &quot;Enum&quot; suffix in enum type names.
+			</p>
+			<p>
+				<span class="label">X DO NOT</span> use &quot;Flag&quot; or “Flags&quot; suffixes in enum type names.
+			</p>
+			<p>
+				<span class="label">X DO NOT</span> use a prefix on enumeration value names (e.g., &quot;ad&quot; for ADO enums, &quot;rtf&quot; for rich text enums, etc.).
+			</p>
+		</div>
+	</div>
+	<p>
+		Names of Type Members
+	</p>
+	<div class="introduction">
+		<p>
+			Types are made of members: methods, properties, events, constructors, and fields. The following sections describe guidelines for naming type members.
+		</p>
+	</div>
+	<div>
+		<div class="LW_CollapsibleArea_TitleDiv">
+			<div>
+				<a class="LW_CollapsibleArea_TitleAhref" href="javascript:void(0)" title="Click to collapse. Double-click to collapse all."><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Names of Methods</span></a>
+				<div class="LW_CollapsibleArea_HrDiv">
+					<hr class="LW_CollapsibleArea_Hr" />
+				</div>
+			</div>
+		</div>
+		<div class="sectionblock">
+			<a id="sectionToggle11"></a>
+			<p>
+				Because methods are the means of taking action, the design guidelines require that method names be verbs or verb phrases. Following this guideline also serves to distinguish method names from property and type names, which are noun or adjective phrases.
+			</p>
+			<p>
+				<span class="label">√ DO</span> give methods names that are verbs or verb phrases.
+			</p>
+			<div id="code-snippet-3" class="codeSnippetContainer" xmlns="">
+				<div class="codeSnippetContainerTabs">
+				</div>
+				<div class="codeSnippetContainerCodeContainer">
+					<div class="codeSnippetToolBar">
+						<div class="codeSnippetToolBarText">
+							<a href="javascript:if (window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode_c8556085-7c6a-4613-89eb-8fb92a1592bf');" name="CodeSnippetCopyLink0" title="Copy to clipboard.">Copy</a>
+						</div>
+					</div>
+					<div id="CodeSnippetContainerCode_c8556085-7c6a-4613-89eb-8fb92a1592bf" class="codeSnippetContainerCode" dir="ltr">
+						<div>
+							<pre>public class String {
+    public int CompareTo(...);
+    public string[] Split(...);
+    public string Trim();
+}
+</pre>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div>
+		<div class="LW_CollapsibleArea_TitleDiv">
+			<div>
+				<a class="LW_CollapsibleArea_TitleAhref" href="javascript:void(0)" title="Click to collapse. Double-click to collapse all."><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Names of Properties</span></a>
+				<div class="LW_CollapsibleArea_HrDiv">
+					<hr class="LW_CollapsibleArea_Hr" />
+				</div>
+			</div>
+		</div>
+		<div class="sectionblock">
+			<a id="sectionToggle12"></a>
+			<p>
+				Unlike other members, properties should be given noun phrase or adjective names. That is because a property refers to data, and the name of the property reflects that. PascalCasing is always used for property names.
+			</p>
+			<p>
+				<span class="label">√ DO</span> name properties using a noun, noun phrase, or adjective.
+			</p>
+			<p>
+				<span class="label">X DO NOT</span> have properties that match the name of &quot;Get&quot; methods as in the following example:
+			</p>
+			<p>
+				<span class="code">public string TextWriter { get {...} set {...} }</span>
+				<br />
+				<span class="code">public string GetTextWriter(int value) { ... }</span>
+			</p>
+			<p>
+				This pattern typically indicates that the property should really be a method.
+			</p>
+			<p>
+				<span class="label">√ DO</span> name collection properties with a plural phrase describing the items in the collection instead of using a singular phrase followed by &quot;List&quot; or &quot;Collection.&quot;
+			</p>
+			<p>
+				<span class="label">√ DO</span> name Boolean properties with an affirmative phrase (<span class="code">CanSeek</span> instead of <span class="code">CantSeek</span>). Optionally, you can also prefix Boolean properties with &quot;Is,&quot; &quot;Can,&quot; or &quot;Has,&quot; but only where it adds value.
+			</p>
+			<p>
+				<span class="label">√ CONSIDER</span> giving a property the same name as its type.
+			</p>
+			<p>
+				For example, the following property correctly gets and sets an enum value named <span class="code">Color</span>, so the property is named <span class="code">Color</span>:
+			</p>
+			<div id="code-snippet-4" class="codeSnippetContainer" xmlns="">
+				<div class="codeSnippetContainerTabs">
+				</div>
+				<div class="codeSnippetContainerCodeContainer">
+					<div class="codeSnippetToolBar">
+						<div class="codeSnippetToolBarText">
+							<a href="javascript:if (window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode_4594df0c-84ff-4303-a93e-c663ef522e1a');" name="CodeSnippetCopyLink1" title="Copy to clipboard.">Copy</a>
+						</div>
+					</div>
+					<div id="CodeSnippetContainerCode_4594df0c-84ff-4303-a93e-c663ef522e1a" class="codeSnippetContainerCode" dir="ltr">
+						<div>
+							<pre>public enum Color {...}
+public class Control {
+    public Color Color { get {...} set {...} }
+}
+</pre>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div>
+		<div class="LW_CollapsibleArea_TitleDiv">
+			<div>
+				<a class="LW_CollapsibleArea_TitleAhref" href="javascript:void(0)" title="Click to collapse. Double-click to collapse all."><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Names of Events</span></a>
+				<div class="LW_CollapsibleArea_HrDiv">
+					<hr class="LW_CollapsibleArea_Hr" />
+				</div>
+			</div>
+		</div>
+		<div class="sectionblock">
+			<a id="sectionToggle13"></a>
+			<p>
+				Events always refer to some action, either one that is happening or one that has occurred. Therefore, as with methods, events are named with verbs, and verb tense is used to indicate the time when the event is raised.
+			</p>
+			<p>
+				<span class="label">√ DO</span> name events with a verb or a verb phrase.
+			</p>
+			<p>
+				Examples include <span class="code">Clicked</span>, <span class="code">Painting</span>, <span class="code">DroppedDown</span>, and so on.
+			</p>
+			<p>
+				<span class="label">√ DO</span> give events names with a concept of before and after, using the present and past tenses.
+			</p>
+			<p>
+				For example, a close event that is raised before a window is closed would be called <span class="code">Closing</span>, and one that is raised after the window is closed would be called <span class="code">Closed</span>.
+			</p>
+			<p>
+				<span class="label">X DO NOT</span> use &quot;Before&quot; or &quot;After&quot; prefixes or postfixes to indicate pre- and post-events. Use present and past tenses as just described.
+			</p>
+			<p>
+				<span class="label">√ DO</span> name event handlers (delegates used as types of events) with the &quot;EventHandler&quot; suffix, as shown in the following example:
+			</p>
+			<p>
+				<span class="code">public delegate void ClickedEventHandler(object sender, ClickedEventArgs e);</span>
+			</p>
+			<p>
+				<span class="label">√ DO</span> use two parameters named <span class="parameter">sender</span> and <span class="parameter">e</span> in event handlers.
+			</p>
+			<p>
+				The sender parameter represents the object that raised the event. The sender parameter is typically of type <span class="code">object</span>, even if it is possible to employ a more specific type.
+			</p>
+			<p>
+				<span class="label">√ DO</span> name event argument classes with the &quot;EventArgs&quot; suffix.
+			</p>
+		</div>
+	</div>
+	<div>
+		<div class="LW_CollapsibleArea_TitleDiv">
+			<div>
+				<a class="LW_CollapsibleArea_TitleAhref" href="javascript:void(0)" title="Click to collapse. Double-click to collapse all."><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Names of Fields</span></a>
+				<div class="LW_CollapsibleArea_HrDiv">
+					<hr class="LW_CollapsibleArea_Hr" />
+				</div>
+			</div>
+		</div>
+		<div class="sectionblock">
+			<a id="sectionToggle14"></a>
+			<p>
+				The field-naming guidelines apply to static public and protected fields. Internal and private fields are not covered by guidelines, and public or protected instance fields are not allowed by the <a href="http://msdn.microsoft.com/en-us/library/ms229059(v=vs.110).aspx">member design guidelines</a>.
+			</p>
+			<p>
+				<span class="label">√ DO</span> use PascalCasing in field names.
+			</p>
+			<p>
+				<span class="label">√ DO</span> name fields using a noun, noun phrase, or adjective.
+			</p>
+			<p>
+				<span class="label">X DO NOT</span> use a prefix for field names.
+			</p>
+			<p>
+				For example, do not use &quot;g_&quot; or &quot;s_&quot; to indicate static fields.
+			</p>
+		</div>
+	</div>
+	<p>
+		Naming Parameters
+	</p>
+	<div class="introduction">
+		<p>
+			Beyond the obvious reason of readability, it is important to follow the guidelines for parameter names because parameters are displayed in documentation and in the designer when visual design tools provide Intellisense and class browsing functionality.
+		</p>
+	</div>
+	<div id="sectionSection3" class="seeAlsoNoToggleSection">
+		<p>
+			<span class="label">√ DO</span> use camelCasing in parameter names.
+		</p>
+		<p>
+			<span class="label">√ DO</span> use descriptive parameter names.
+		</p>
+		<p>
+			<span class="label">√ CONSIDER</span> using names based on a parameter’s meaning rather than the parameter’s type.
+		</p>
+		<div>
+			<div class="LW_CollapsibleArea_TitleDiv">
+				<div>
+					<a class="LW_CollapsibleArea_TitleAhref" href="javascript:void(0)" title="Click to collapse. Double-click to collapse all."><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Naming Operator Overload Parameters</span></a>
+					<div class="LW_CollapsibleArea_HrDiv">
+						<hr class="LW_CollapsibleArea_Hr" />
+					</div>
+				</div>
+			</div>
+			<div class="sectionblock">
+				<a id="sectionToggle15"></a>
+				<p>
+					<span class="label">√ DO</span> use <span class="parameter">left</span> and <span class="parameter">right</span> for binary operator overload parameter names if there is no meaning to the parameters.
+				</p>
+				<p>
+					<span class="label">√ DO</span> use <span class="parameter">value</span> for unary operator overload parameter names if there is no meaning to the parameters.
+				</p>
+				<p>
+					<span class="label">√ CONSIDER</span> meaningful names for operator overload parameters if doing so adds significant value.
+				</p>
+				<p>
+					<span class="label">X DO NOT</span> use abbreviations or numeric indices for operator overload parameter names.
+				</p>
+			</div>
+		</div>
+	</div>
+	<p>
+		Naming Resources
+	</p>
+	<div class="introduction">
+		<p>
+			Because localizable resources can be referenced via certain objects as if they were properties, the naming guidelines for resources are similar to property guidelines.
+		</p>
+	</div>
+	<div id="sectionSection4" class="seeAlsoNoToggleSection">
+		<p>
+			<span class="label">√ DO</span> use PascalCasing in resource keys.
+		</p>
+		<p>
+			<span class="label">√ DO</span> provide descriptive rather than short identifiers.
+		</p>
+		<p>
+			<span class="label">X DO NOT</span> use language-specific keywords of the main CLR languages.
+		</p>
+		<p>
+			<span class="label">√ DO</span> use only alphanumeric characters and underscores in naming resources.
+		</p>
+		<p>
+			<span class="label">√ DO</span> use the following naming convention for exception message resources.
+		</p>
+		<p>
+			The resource identifier should be the exception type name plus a short identifier of the exception:
+		</p>
+		<p>
+			<span class="code">ArgumentExceptionIllegalCharacters</span>
+			<br />
+			<span class="code">ArgumentExceptionInvalidName</span>
+			<br />
+			<span class="code">ArgumentExceptionFileNameIsMalformed</span>
+		</p>
+	</div>
+
+	<p>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style2">/////////////////////////////////////////////////////////////////</span>&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style2">//&nbsp;Construct&nbsp;the&nbsp;data&nbsp;context.</span>&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style2">//&nbsp;</span>&nbsp;<br />
+		&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style2">//&nbsp;Get&nbsp;the&nbsp;connection&nbsp;string&nbsp;from&nbsp;App.config.&nbsp;(The&nbsp;data&nbsp;source&nbsp;is</span>&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style2">//&nbsp;created&nbsp;in&nbsp;the&nbsp;example&nbsp;SQLServer2005DB)</span>&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style2">string</span>&nbsp;connStr&nbsp;=&nbsp;ConfigurationManager.ConnectionStrings[&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style2">&quot;SQLServer2005DB&quot;</span>].ConnectionString;&nbsp;<br />
+		&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style2">//&nbsp;DataContext&nbsp;takes&nbsp;a&nbsp;connection&nbsp;string</span>&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CSLinqToSQL.Manual.SchoolDataContext&nbsp;db&nbsp;=&nbsp;<span class="auto-style2">new</span>&nbsp;&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CSLinqToSQL.Manual.SchoolDataContext(connStr);&nbsp;<br />
+		&nbsp;<br />
+		&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style2">/////////////////////////////////////////////////////////////////</span>&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style2">//&nbsp;Perform&nbsp;the&nbsp;Insert&nbsp;operation.</span>&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style2">//&nbsp;</span>&nbsp;<br />
+		&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(<span class="auto-style2">&quot;\nAdd&nbsp;a&nbsp;new&nbsp;student&nbsp;to&nbsp;the&nbsp;Person&nbsp;table&quot;</span>);&nbsp;<br />
+		&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style2">//&nbsp;Create&nbsp;a&nbsp;new&nbsp;Student.</span>&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style2">//&nbsp;We&nbsp;don&#39;t&nbsp;need&nbsp;to&nbsp;set&nbsp;the&nbsp;PersonCategory&nbsp;value&nbsp;here&nbsp;if&nbsp;we&nbsp;want</span>&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style2">//&nbsp;the&nbsp;default&nbsp;value&nbsp;to&nbsp;be&nbsp;set&nbsp;to&nbsp;this&nbsp;column&nbsp;in&nbsp;the&nbsp;database.</span>&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CSLinqToSQL.Manual.Student&nbsp;student&nbsp;=&nbsp;<span class="auto-style2">new</span>&nbsp;CSLinqToSQL.Manual.Student&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FirstName&nbsp;=&nbsp;<span class="auto-style2">&quot;Rongchun&quot;</span>,&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LastName&nbsp;=&nbsp;<span class="auto-style2">&quot;Zhang&quot;</span>,&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EnrollmentDate&nbsp;=&nbsp;DateTime.Now,&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Picture&nbsp;=&nbsp;ReadImage(@<span class="auto-style2">&quot;MSDN.jpg&quot;</span>),&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};&nbsp;<br />
+		&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style2">//&nbsp;Add&nbsp;the&nbsp;new&nbsp;object&nbsp;to&nbsp;Students.</span>&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;db.Students.InsertOnSubmit(student);&nbsp;<br />
+		&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style2">//&nbsp;Submit&nbsp;the&nbsp;change&nbsp;to&nbsp;the&nbsp;database.</span>&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;db.SubmitChanges();&nbsp;<br />
+		&nbsp;<br />
+		&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style2">/////////////////////////////////////////////////////////////////</span>&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style2">//&nbsp;Perform&nbsp;the&nbsp;Query&nbsp;operation.</span>&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style2">//&nbsp;</span>&nbsp;<br />
+		&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style2">//&nbsp;Query&nbsp;in&nbsp;one&nbsp;table.</span>&nbsp;<br />
+		&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(<span class="auto-style2">&quot;\nQuery&nbsp;students&nbsp;whose&nbsp;first&nbsp;name&nbsp;is&nbsp;Roger:&quot;</span>);&nbsp;<br />
+		&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;students&nbsp;=&nbsp;from&nbsp;p&nbsp;<span class="auto-style2">in</span>&nbsp;db.Students&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where&nbsp;p.FirstName&nbsp;==&nbsp;<span class="auto-style2">&quot;Roger&quot;</span>&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select&nbsp;p;&nbsp;<br />
+		&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style2">foreach</span>&nbsp;(var&nbsp;p&nbsp;<span class="auto-style2">in</span>&nbsp;students)&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(<span class="auto-style2">&quot;ID&nbsp;=&nbsp;{0},&nbsp;Name&nbsp;=&nbsp;{1}&nbsp;{2}&quot;</span>,&nbsp;p.PersonID,&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p.FirstName,&nbsp;p.LastName);&nbsp;<br />
+		&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style2">//&nbsp;Query&nbsp;across&nbsp;multiple&nbsp;tales.</span>&nbsp;<br />
+		&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(<span class="auto-style2">&quot;\nQuery&nbsp;max.&nbsp;grade&nbsp;of&nbsp;each&nbsp;course:&quot;</span>);&nbsp;<br />
+		&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;courses&nbsp;=&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;grade&nbsp;<span class="auto-style2">in</span>&nbsp;db.CourseGrades&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;group&nbsp;grade&nbsp;by&nbsp;grade.CourseID&nbsp;into&nbsp;g&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;join&nbsp;cur&nbsp;<span class="auto-style2">in</span>&nbsp;db.Courses&nbsp;on&nbsp;g.Key&nbsp;equals&nbsp;cur.CourseID&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select&nbsp;<span class="auto-style2">new</span>&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CourseID&nbsp;=&nbsp;g.Key,&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Title&nbsp;=&nbsp;cur.Title,&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TopGrade&nbsp;=&nbsp;g.Max(gra&nbsp;=&gt;&nbsp;gra.Grade)&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};&nbsp;<br />
+		&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style2">foreach</span>&nbsp;(var&nbsp;c&nbsp;<span class="auto-style2">in</span>&nbsp;courses)&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(<span class="auto-style2">&quot;Course&nbsp;=&nbsp;{0},&nbsp;TopGrade&nbsp;=&nbsp;{1}&quot;</span>,&nbsp;&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c.Title,&nbsp;c.TopGrade);&nbsp;<br />
+		&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(<span class="auto-style2">&quot;\nQuery&nbsp;all&nbsp;grades&nbsp;that&nbsp;Nino&nbsp;got&quot;</span>);&nbsp;<br />
+		&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;grades&nbsp;=&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;stu&nbsp;<span class="auto-style2">in</span>&nbsp;db.Students&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;gra&nbsp;<span class="auto-style2">in</span>&nbsp;stu.CourseGrades&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;join&nbsp;cur&nbsp;<span class="auto-style2">in</span>&nbsp;db.Courses&nbsp;on&nbsp;gra.CourseID&nbsp;equals&nbsp;cur.CourseID&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where&nbsp;stu.FirstName&nbsp;==&nbsp;<span class="auto-style2">&quot;Nino&quot;</span>&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select&nbsp;<span class="auto-style2">new</span>&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stduent&nbsp;=&nbsp;stu,&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Course&nbsp;=&nbsp;cur,&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CourseGrade&nbsp;=&nbsp;gra&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};&nbsp;<br />
+		&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style2">foreach</span>&nbsp;(var&nbsp;grade&nbsp;<span class="auto-style2">in</span>&nbsp;grades)&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(<span class="auto-style2">&quot;FirstName&nbsp;=&nbsp;{0},&nbsp;Course=&nbsp;{1},&nbsp;Grade=&nbsp;{2}&quot;</span>,&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade.Stduent.FirstName,&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade.Course.Title,&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade.CourseGrade.Grade);&nbsp;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<br />
+	</p>
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Naming Guidelines</title>
+	<style type="text/css">
+		.cs__com { color: green; }
+.cs__keyword { color: #3A3AFF; font-weight: bold; }
+.cs__string { color: maroon; }
+		pre
+{
+  border: 0px;
+}pre{display:block;padding:9.5px;margin:0 0 10px;font-size:13px;line-height:20px;word-break:break-all;word-wrap:break-word;white-space:pre;white-space:pre-wrap;background-color:#f5f5f5;border:1px solid #ccc;border:1px solid rgba(0,0,0,0.15);-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}pre,blockquote{border:1px solid #999;page-break-inside:avoid}*{color:#000!important;text-shadow:none!important;background:transparent!important;box-shadow:none!important}
+		.LW_CollapsibleArea_TitleDiv{font-family:'Segoe UI Semibold','Segoe UI','Lucida Grande',Verdana,Arial,Helvetica,sans-serif;font-size:13px;}.LW_CollapsibleArea_TitleDiv{margin-top:9px;margin-bottom:19px;padding:0;}
+.LW_CollapsibleArea_TitleDiv{font-family:'Segoe UI Light','Segoe UI','Lucida Grande',Verdana,Arial,Helvetica,sans-serif!important;font-size:18px;font-style:normal!important;padding-top:20px;padding-bottom:5px;}.LW_CollapsibleArea_TitleAhref{cursor:hand;outline:none;}h1.heading,h2,h2.heading,h2.subheading,.LW_CollapsibleArea_Title{font-size:1.769em;}h1.heading,h2,h2.heading,h2.subheading,h3,h3.subheading,h4,h4.subheading,h5,h5.subheading,.LW_CollapsibleArea_Title{font-family:'Segoe UI Semibold','Segoe UI','Lucida Grande',Verdana,Arial,Helvetica,sans-serif;color:#000;}.LW_CollapsibleArea_Title{font-family:'Segoe UI','Lucida Grande',Verdana,Arial,Helvetica,sans-serif;}.LW_CollapsibleArea_Title{padding-left:10px;}.LW_CollapsibleArea_HrDiv{padding-top:0;}.LW_CollapsibleArea_Hr{border-style:none;color:#e5e5e5;}.sectionblock{padding-left:15px;display:block;padding-bottom:20px;}div#content table,div#content th,div#content td{border:1px solid #bbb;}div#content table{width:100%;}table{padding:0;}table{border-collapse:collapse;padding-bottom:20px;padding-top:20px;}th{background-color:#ededed;color:#636363;text-align:left;}td,th{border-bottom:1px solid #dbdbdb;margin:10px;padding-top:10px;padding-bottom:10px;padding-right:8px;padding-left:8px;}td{color:#2a2a2a;vertical-align:top;}.cl_IC82306{background:url('http://i3.msdn.microsoft.com/Areas/Epx/Content/Images/ImageSprite.png') no-repeat -1625px -3px;
+width:16px;height:16px;overflow:hidden;
+		}
+		.cl_IC157062{background:url('http://i3.msdn.microsoft.com/Areas/Epx/Content/Images/ImageSprite.png') no-repeat -1493px -3px;
+width:16px;height:16px;overflow:hidden;
+		}.LW_CollapsibleArea_Img{margin-top:12px;}.cl_CollapsibleArea_collapsing{background:url('http://i3.msdn.microsoft.com/Areas/Epx/Content/Images/ImageSprite.png') no-repeat -436px -3px;
+width:9px;height:12px;overflow:hidden;
+		}.LW_CollapsibleArea_Img{border-width:0;vertical-align:middle;margin-bottom:0;float:left;margin-top:7px;display:inline-block;}
+		.libraryMemberFilter{display:none;margin-bottom:5px;overflow:auto;}.libraryMemberFilter .filterContainer{float:right;}.libraryMemberFilter .filterContainer label{display:inline;}.libraryMemberFilter .libraryFilterInherited{margin:0 5px;vertical-align:middle;}.libraryMemberFilter .libraryFilterProtected{margin:0 5px 0 15px;vertical-align:middle;}.cl_IC74937{background:url('http://i3.msdn.microsoft.com/Areas/Epx/Content/Images/ImageSprite.png') no-repeat -1603px -3px;
+width:16px;height:16px;overflow:hidden;
+		}
+		.cl_IC91302{background:url('http://i3.msdn.microsoft.com/Areas/Epx/Content/Images/ImageSprite.png') no-repeat -1537px -3px;
+width:16px;height:11px;overflow:hidden;
+		}.cl_IC155188{background:url('http://i3.msdn.microsoft.com/Areas/Epx/Content/Images/ImageSprite.png') no-repeat -1234px -3px;
+width:17px;height:16px;overflow:hidden;
+		}.parameter{font-style:italic;}
+		.auto-style1 {
+			border-style: none;
+			border-color: inherit;
+			border-width: 0;
+		}
+		</style>
+</head>
+<body>
+
+<div dir="ltr">I started with these guidelines:<br>
+<br>
+<a href="http://www.google.com/url?q=http%3A%2F%2Fblogs.msdn.com%2Fbrada%2Farticles%2F361363.aspx&amp;sa=D&amp;sntz=1&amp;usg=AFrqEzd1KYurEDCp7LUD3WrbyM7pxKi_hw" target="_blank">Brad Abrams: Internal Coding Guidelines</a><br>
+<br>
+<a href="http://www.google.com/url?q=http%3A%2F%2Fmsdn.microsoft.com%2Fen-us%2Flibrary%2Fms229002.aspx&amp;sa=D&amp;sntz=1&amp;usg=AFrqEzf8_pV_OtulCIHAqMeWD8qiqock3g" target="_blank">.NET Framework Guidelines for Names</a><br>
+<br>
+They should be followed for cases that are not addressed below.<br>
+<br>
+<b><font size="4">1. Style</font></b><br>
+<br>
+<font size="3"><b>1.1 Tabs &amp; Indenting:</b></font>&nbsp; Use Tabs - don't use spaces.&nbsp; You can then set your editor to the amount of spacing you need to view code (some prefer 2 spaces per tab - others 4 or 5).<br>
+<br>
+<font size="3"><b>1.2 Bracing:</b></font> Always use braces.&nbsp; All of the formats below are fine.&nbsp; Example 1.2.2 is preferred.<br>
+<br>
+Example 1.2.1:<br>
+<div class="sites-codeblock sites-codesnippet-block"><code>if (someExpression)<br>
+{<br>
+<span>&nbsp;&nbsp; </span>DoSomething();<br>
+}<br>
+else<br>
+{<br>
+<span>&nbsp;&nbsp; </span>DoSomethingElse();<br>
+}<br>
+</code></div>
+Example 1.2.2:<br>
+<div class="sites-codeblock sites-codesnippet-block"><code>if (someExpression){<br>
+<span>&nbsp;&nbsp; </span>DoSomething();<br>
+}<br>
+else{<br>
+<span>&nbsp;&nbsp; </span>DoSomethingElse();<br>
+}</code></div>
+Example 1.2.3:<br>
+<div class="sites-codeblock sites-codesnippet-block"><code>if (someExpression){<span>&nbsp;&nbsp; </span>DoSomething();}else{<span>&nbsp; </span>DoSomethingElse();}</code></div>
+<br>
+<b>1.3 Comments:</b> Comments should be used to describe intention, algorithmic overview, and/or logical flow.<br>
+<br>
+<b>1.3.1 Copyright notice:</b>&nbsp; If possible, each file should start with a copyright notice with the last year the file was edited as the copyright year.<br>
+<br>
+<b>1.3.2 Change log</b>: Each file should have a "Change Log" comments after the copyright notice.&nbsp; Each entry tin the "Change Log" area should include the date of the change, the author, and a comment.<br>
+<br>
+Example 1.3.2.1<br>
+<div class="sites-codeblock sites-codesnippet-block"><code>/***********************************************************************************<br>
+&nbsp;* <br>
+&nbsp;*&nbsp; 2009.9.18.0 [Brian A. Lakstins] Initial release<br>
+&nbsp;* <br>
+&nbsp;***********************************************************************************/</code></div>
+<br>
+<b>1.3.3 Documentation Comments:</b>&nbsp; All classes and methods should have XML doc comments.&nbsp; For internal dev comments, the &lt;devdoc&gt; tag should be used.<br>
+<br>
+<font size="3"><b>1.4 Spacing:</b></font> Visual Studio automatically spaces code if given the chance.&nbsp; The default spacing seems to be easy to read.&nbsp; These are some cases:<br>
+<br>
+<ul style="margin-top:0in"><li><u>Do</u> use a single space after a comma between function arguments.<br>
+Right:<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span><span style="font-size:10pt"><font face="Lucida Console">Console.In.Read(myChar, 0, 1);<br>
+</font></span></span>Wrong: <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span><span style="font-size:10pt"><font face="Lucida Console">Console.In.Read(myChar,0,1);<span>&nbsp; </span></font></span></span> </li>
+<li><u>Do not</u> use a space after the parenthesis and function arguments<br>
+Right: <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span><span style="font-size:10pt"><font face="Lucida Console">CreateFoo(myChar, 0, 1)</font></span></span><span style="font-family:Courier New"><br>
+</span>Wrong: <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span><span style="font-size:10pt"><font face="Lucida Console">CreateFoo( myChar, 0, 1 )</font></span></span> </li>
+<li><u>Do not</u> use spaces between a function name and parenthesis.<br>
+Right: <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span><span style="font-size:10pt"><font face="Lucida Console">CreateFoo()</font></span></span><span style="font-family:Courier New"><br>
+</span>Wrong: <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span><span style="font-size:10pt"><font face="Lucida Console">CreateFoo ()</font></span></span> </li>
+<li><u>Do not</u> use spaces inside brackets.<br>
+Right<span style="font-family:Courier New">: <span>&nbsp;&nbsp; </span></span><span><span style="font-size:10pt"><font face="Lucida Console">x = dataArray[index];<br>
+</font></span></span>Wrong: <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span><span style="font-size:10pt"><font face="Lucida Console">x = dataArray[ index ];</font></span></span> </li>
+<li><u>Do</u> use a single space before flow control statements<br>
+Right:<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span><span style="font-size:10pt"><font face="Lucida Console">while (x == y)<br>
+</font></span></span>Wrong: <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span><span style="font-size:10pt"><font face="Lucida Console">while(x==y)</font></span></span> </li>
+<li><u>Do</u> use a single space before and after comparison operators<br>
+Right:<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span><span style="font-size:10pt"><font face="Lucida Console">if (x == y)<br>
+</font></span></span>Wrong: <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span><span style="font-size:10pt"><font face="Lucida Console">if (x==y)</font></span></span></li></ul>
+<font size="3"><b>1.5 Naming:</b></font>&nbsp; <br>
+<br>
+<b>1.5.1 Libraries</b><br>
+<ul><li>All identifiers should use Pascal Casing (<span>The first letter in the identifier and the first letter of each
+subsequent concatenated word are capitalized.)</span></li>
+<li>Prefix Interfaces with "I"</li>
+<li>Class internal variables should be prefixed with two characters.&nbsp; The first character is "_" and the second character depends on the type of the variable.<br>
+</li>
+<li><span>Variables that only exist in the context of the current method (parameters or local variables) should be prefixed with two characters.&nbsp; The first character is "l" and the </span>second character depends on the type of the variable.</li>
+<li><span>The basic secondary characters that depend on the type of the variable are</span></li>
+<ul><li><span>o -&gt; Object</span></li>
+<li><span>n -&gt; Number (int, double, etc)</span></li>
+<li><span>s -&gt; String</span></li>
+<li><span>a -&gt; Array (List, Dictionary, etc)</span></li>
+<li><span>b -&gt; Boolean</span></li>
+<li><span>e -&gt; Enum</span></li>
+<li><span>d -&gt; DateTime</span></li></ul>
+<li><span>Identifiers should be prefixed in some way to make it obvious they are not part of the core .NET Framework or external library.<br>
+</span></li></ul>
+<b>1.5.2 WebSites</b><br>
+<ul><li>All server controls defined in .ASPX files will have "ID" property that begins with "uc" for "User Control" (ie: ucBodyLabel)</li>
+<li>All server controls defined in .ASPX files will have "SkinID" property that starts with "us" for "User Skin" (ie: usBodyLabel)</li>
+<li>CSS Class names will start with "uss" for User Style Sheet&nbsp; (ie: ussBodyLabel)</li>
+<li>Domain Object Model objects defined in client side "id" fields will be prefixed with "ud" (ie: udBodyLable)</li>
+<li>Objects defined in App_Code to be used by the User Interface  will begin with "UI" for  (ie: UIPage)</li>
+<li>Objects defined in App_Code to be used in the Business Logic will begin with "BL" for (ie: BLCatalog)</li>
+<li>Javascript objects created to be used in the browser will be <span> prefixed in some way to make it obvious they are not part of the core DOM or external library.</span></li>
+<li>Javascript objects created to be used in the browser will be suffixed by "JS" (ie: BalCatalogJS)</li>
+<li>Instances of Javascript objects will use the two character prefix naming convention for libraries, with "j" as the first character (ie: joCatalog, jsTitle)<br>
+</li></ul>
+<br>
+<br></div>
+
+
+
+</body>
+</html>
+
