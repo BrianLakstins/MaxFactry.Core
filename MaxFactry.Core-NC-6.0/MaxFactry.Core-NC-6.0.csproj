@@ -1,0 +1,75 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>MaxFactry.Core_NC_6._0</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>$(DefineConstants)TRACE;netcore1;netcore2;netcore2_1;netcore3_1;netcore_6</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>$(DefineConstants)TRACE;netcore1;netcore2;netcore2_1;netcore3_1;netcore_6</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Enum\MaxEnumGroup.cs" Link="Core\Enum\MaxEnumGroup.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Exception\MaxException.cs" Link="Core\Exception\MaxException.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Factory\MaxByMethodFactory.cs" Link="Core\Factory\MaxByMethodFactory.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Factory\MaxMultipleFactory.cs" Link="Core\Factory\MaxMultipleFactory.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Factory\MaxSingleFactory.cs" Link="Core\Factory\MaxSingleFactory.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Interface\IMaxProvider.cs" Link="Core\Interface\IMaxProvider.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\Interface\IMaxCompressionLibraryProvider.cs" Link="Core\Library\Interface\IMaxCompressionLibraryProvider.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\Interface\IMaxConfigurationLibraryProvider.cs" Link="Core\Library\Interface\IMaxConfigurationLibraryProvider.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\Interface\IMaxConvertLibraryProvider.cs" Link="Core\Library\Interface\IMaxConvertLibraryProvider.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\Interface\IMaxEncryptionLibraryProvider.cs" Link="Core\Library\Interface\IMaxEncryptionLibraryProvider.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\Interface\IMaxFactryLibraryProvider.cs" Link="Core\Library\Interface\IMaxFactryLibraryProvider.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\Interface\IMaxLogLibraryProvider.cs" Link="Core\Library\Interface\IMaxLogLibraryProvider.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\Interface\IMaxMetaLibraryProvider.cs" Link="Core\Library\Interface\IMaxMetaLibraryProvider.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\Interface\IMaxSecurityLibraryProvider.cs" Link="Core\Library\Interface\IMaxSecurityLibraryProvider.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\Interface\IMaxValidationLibraryProvider.cs" Link="Core\Library\Interface\IMaxValidationLibraryProvider.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\MaxCompressionLibrary.cs" Link="Core\Library\MaxCompressionLibrary.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\MaxConfigurationLibrary.cs" Link="Core\Library\MaxConfigurationLibrary.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\MaxConvertLibrary.cs" Link="Core\Library\MaxConvertLibrary.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\MaxEncryptionLibrary.cs" Link="Core\Library\MaxEncryptionLibrary.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\MaxFactryLibrary.cs" Link="Core\Library\MaxFactryLibrary.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\MaxLogLibrary.cs" Link="Core\Library\MaxLogLibrary.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\MaxMetaLibrary.cs" Link="Core\Library\MaxMetaLibrary.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\MaxSecurityLibrary.cs" Link="Core\Library\MaxSecurityLibrary.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\MaxValidationLibrary.cs" Link="Core\Library\MaxValidationLibrary.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\Provider\MaxCompressionLibraryDefaultProvider.cs" Link="Core\Library\Provider\MaxCompressionLibraryDefaultProvider.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\Provider\MaxConfigurationLibraryDefaultProvider.cs" Link="Core\Library\Provider\MaxConfigurationLibraryDefaultProvider.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\Provider\MaxConvertLibraryDefaultProvider.cs" Link="Core\Library\Provider\MaxConvertLibraryDefaultProvider.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\Provider\MaxEncryptionLibraryDefaultProvider.cs" Link="Core\Library\Provider\MaxEncryptionLibraryDefaultProvider.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\Provider\MaxFactryLibraryDefaultProvider.cs" Link="Core\Library\Provider\MaxFactryLibraryDefaultProvider.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\Provider\MaxLogLibraryBaseProvider.cs" Link="Core\Library\Provider\MaxLogLibraryBaseProvider.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\Provider\MaxLogLibraryDefaultProvider.cs" Link="Core\Library\Provider\MaxLogLibraryDefaultProvider.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\Provider\MaxMetaLibraryDefaultProvider.cs" Link="Core\Library\Provider\MaxMetaLibraryDefaultProvider.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\Provider\MaxSecurityLibraryDefaultProvider.cs" Link="Core\Library\Provider\MaxSecurityLibraryDefaultProvider.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\Provider\MaxValidationLibraryDefaultProvider.cs" Link="Core\Library\Provider\MaxValidationLibraryDefaultProvider.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\MaxIndex.cs" Link="Core\MaxIndex.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\MaxIndexCollection.cs" Link="Core\MaxIndexCollection.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\MaxIndexCollectionEnumerator.cs" Link="Core\MaxIndexCollectionEnumerator.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\MaxIndexEnumerator.cs" Link="Core\MaxIndexEnumerator.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\MaxMetaAttribute.cs" Link="Core\MaxMetaAttribute.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Provider\MaxProvider.cs" Link="Core\Provider\MaxProvider.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Structure\MaxIndexItemStructure.cs" Link="Core\Structure\MaxIndexItemStructure.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Structure\MaxLogEntryStructure.cs" Link="Core\Structure\MaxLogEntryStructure.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Structure\MaxSettingsStructure.cs" Link="Core\Structure\MaxSettingsStructure.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Core\Enum\" />
+    <Folder Include="Core\Exception\" />
+    <Folder Include="Core\Factory\" />
+    <Folder Include="Core\Interface\" />
+    <Folder Include="Core\Library\Interface\" />
+    <Folder Include="Core\Library\Provider\" />
+    <Folder Include="Core\Provider\" />
+    <Folder Include="Core\Structure\" />
+  </ItemGroup>
+
+</Project>
