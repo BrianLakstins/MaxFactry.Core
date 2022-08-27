@@ -34,15 +34,22 @@
 namespace MaxFactry.Core
 {
     using System;
+    using System.Resources;
+
     public class MaxResource
     {
         public static string GetString(string lsKey)
         {
             string lsR = string.Empty;
+#if net4_72
+            ResourceManager loResourceManager = new ResourceManager("Strings", typeof(MaxFactry.Core.MaxResource).Assembly);
+            lsR = loResourceManager.GetString(lsKey);
+#else
             if (lsKey == "TEST")
             {
-                lsR = MaxFactry.Core.Properties.Resources.TEST;
+                lsR =MaxFactry.Core.Properties.Resources.TEST;
             }
+#endif
 
             return lsR;
         }
