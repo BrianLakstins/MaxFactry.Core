@@ -1,0 +1,1 @@
+﻿MaxFactry Core is the core portion of the MaxFactry Framework.  It contains Libraries to support dynamic three layer application development.
