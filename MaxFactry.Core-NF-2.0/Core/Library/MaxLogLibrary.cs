@@ -465,7 +465,7 @@ namespace MaxFactry.Core
                 loList = new List<MaxLogEntryStructure>(_oRecentLogByThreadId[lnThreadId].ToArray());
             }
 
-            if (null != loType && null != lsMethod)
+            if (null != loType && null != lsMethod && null != loList)
             {
                 List<MaxLogEntryStructure> loCheckList = loList;
                 //// Check current threads for a match to the type and method
