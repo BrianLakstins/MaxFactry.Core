@@ -351,46 +351,46 @@ namespace MaxFactry.Core
             if (_oRecentLogByThreadId.ContainsKey(lnThreadId))
             {
                 loList = new List<MaxLogEntryStructure>(_oRecentLogByThreadId[lnThreadId].ToArray());
-            } 
-            
-            if (null != loType && null != lsMethod)
-            {
-                List<MaxLogEntryStructure> loCheckList = loList;
-                //// Check current threads for a match to the type and method
-                bool lbFound = false;
-                if (null != loCheckList)
-                {
-                    for (int lnL = loCheckList.Count - 1; lnL >= 0 && !lbFound; lnL--)
-                    {
-                        if (loCheckList[lnL].Name.StartsWith(loType.ToString()) && loCheckList[lnL].Name.EndsWith("." + lsMethod))
-                        {
-                            lbFound = true;
-                        }
-                    }
-                }
+            }
 
-                if (!lbFound)
+            if (null != loList)
+            {
+                if (null != loType && null != lsMethod)
                 {
-                    //// Check all threads for a match to the type and method
-                    loList = null;
-                    int[] laKey = new int[_oRecentLogByThreadId.Keys.Count];
-                    _oRecentLogByThreadId.Keys.CopyTo(laKey, 0);
-                    for (int lnK = 0; lnK < laKey.Length && null == loList; lnK++)
+                    List<MaxLogEntryStructure> loCheckList = loList;
+                    //// Check current threads for a match to the type and method
+                    bool lbFound = false;
+                    if (null != loCheckList)
                     {
-                        loCheckList = _oRecentLogByThreadId[laKey[lnK]];
-                        for (int lnL = loCheckList.Count - 1; lnL >= 0 && null == loList; lnL--)
+                        for (int lnL = loCheckList.Count - 1; lnL >= 0 && !lbFound; lnL--)
                         {
                             if (loCheckList[lnL].Name.StartsWith(loType.ToString()) && loCheckList[lnL].Name.EndsWith("." + lsMethod))
                             {
-                                loList = new List<MaxLogEntryStructure>(loCheckList.ToArray());
+                                lbFound = true;
+                            }
+                        }
+                    }
+
+                    if (!lbFound)
+                    {
+                        //// Check all threads for a match to the type and method
+                        loList = null;
+                        int[] laKey = new int[_oRecentLogByThreadId.Keys.Count];
+                        _oRecentLogByThreadId.Keys.CopyTo(laKey, 0);
+                        for (int lnK = 0; lnK < laKey.Length && null == loList; lnK++)
+                        {
+                            loCheckList = _oRecentLogByThreadId[laKey[lnK]];
+                            for (int lnL = loCheckList.Count - 1; lnL >= 0 && null == loList; lnL--)
+                            {
+                                if (loCheckList[lnL].Name.StartsWith(loType.ToString()) && loCheckList[lnL].Name.EndsWith("." + lsMethod))
+                                {
+                                    loList = new List<MaxLogEntryStructure>(loCheckList.ToArray());
+                                }
                             }
                         }
                     }
                 }
-            }
 
-            if (null != loList)
-            { 
                 string lsType = string.Empty;
                 if (null != loType)
                 {
