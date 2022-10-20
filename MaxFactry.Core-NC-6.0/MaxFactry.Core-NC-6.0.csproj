@@ -5,6 +5,9 @@
     <RootNamespace>MaxFactry.Core_NC_6._0</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	  <Version>1.0.3</Version>
+	  <AssemblyVersion>1.0.3</AssemblyVersion>
+	  <FileVersion>2022.10.20.01</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
