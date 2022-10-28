@@ -222,6 +222,42 @@ namespace MaxFactry.Core
         /// <summary>
         /// Static level logging.  Static File. - 2^22 + 2^2
         /// </summary>
-        LogStatic = 4194308
+        LogStatic = 4194308,
+
+        /// <summary>
+        /// Group for the permission values
+        /// All contain this bit 2^3
+        /// </summary>
+        PermissionGroup = 8,
+
+        /// <summary>
+        /// Select records
+        /// 2^30 + 2^3
+        /// </summary>
+        PermissionSelect = 1073741832,
+
+        /// <summary>
+        /// Insert records
+        /// 2^29 + 2^3
+        /// </summary>
+        PermissionInsert = 536870920,
+
+        /// <summary>
+        /// Update records
+        /// 2^28 + 2^3
+        /// </summary>
+        PermissionUpdate = 268435464,
+
+        /// <summary>
+        /// Delete records
+        /// 2^27 + 2^3
+        /// </summary>
+        PermissionDelete = 134217736,
+
+        /// <summary>
+        /// Select inactive records
+        /// 2^26 + 2^3
+        /// </summary>
+        PermissionSelectInactive = 67108872
     }
 }
