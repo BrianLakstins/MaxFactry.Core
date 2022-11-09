@@ -536,7 +536,7 @@ namespace MaxFactry.Core.Provider
                 }
             }
 
-            if (ldR.Kind == DateTimeKind.Unspecified)
+            if (DateTime.MinValue != ldR && ldR.Kind == DateTimeKind.Unspecified)
             {
                 //// Convert to time zone specified in configuration
                 object loTimeZoneId = MaxConfigurationLibrary.GetValue(MaxEnumGroup.ScopeProcess, MaxConvertLibrary.MaxTimeZoneIdKey);
@@ -568,8 +568,8 @@ namespace MaxFactry.Core.Provider
         /// <returns>DateTime version of the object</returns>
         public virtual DateTime ConvertToDateTimeFromUtc(object loObject)
         {
-            DateTime loR = this.ConvertToDateTime(loObject);
-            if (loR.Kind == DateTimeKind.Utc)
+            DateTime ldR = this.ConvertToDateTime(loObject);
+            if (DateTime.MinValue != ldR && ldR.Kind == DateTimeKind.Utc)
             {
                 //// Convert to time zone specified in configuration
                 object loTimeZoneId = MaxConfigurationLibrary.GetValue(MaxEnumGroup.ScopeProcess, MaxConvertLibrary.MaxTimeZoneIdKey);
@@ -585,19 +585,19 @@ namespace MaxFactry.Core.Provider
                     TimeZoneInfo loTimeZone = TimeZoneInfo.FindSystemTimeZoneById(lsTimeZoneId);
                     if (null != loTimeZone)
                     {
-                        loR = TimeZoneInfo.ConvertTime(loR, loTimeZone);
+                        ldR = TimeZoneInfo.ConvertTime(ldR, loTimeZone);
                     }
 #endif
                 }
 
-                if (loR.Kind == DateTimeKind.Utc)
+                if (ldR.Kind == DateTimeKind.Utc)
                 {
-                    loR = loR.ToLocalTime();
+                    ldR = ldR.ToLocalTime();
                 }
             }
 
 
-            return loR;
+            return ldR;
         }
 
         /// <summary>
@@ -607,13 +607,13 @@ namespace MaxFactry.Core.Provider
         /// <returns>DateTime version of the object</returns>
         public virtual DateTime ConvertToDateTimeUtc(object loObject)
         {
-            DateTime loR = this.ConvertToDateTime(loObject);
-            if (DateTime.MinValue != loR)
+            DateTime ldR = this.ConvertToDateTime(loObject);
+            if (DateTime.MinValue != ldR)
             {
-                loR = loR.ToUniversalTime();
+                ldR = ldR.ToUniversalTime();
             }
 
-            return loR;
+            return ldR;
         }
 
         /// <summary>
