@@ -511,8 +511,50 @@ namespace MaxFactry.Core.Provider
                 }
                 else if (loObject is string)
                 {
-                    //// ToDo: Try to parse string - DateTime.parse is not available in MicroFramework though
-                    //DateTime.TryParse(loObject as string, out ldR);
+                    if (!DateTime.TryParse(loObject as string, out ldR))
+                    {
+                        //// Try parsing as milliseconds from 1/1/1970.
+                        bool lbIsNumber = true;
+                        foreach (char loChar in (string)loObject)
+                        {
+                            if (!char.IsNumber(loChar))
+                            {
+                                lbIsNumber = false;
+                            }
+                        }
+
+                        if (lbIsNumber)
+                        {
+                            double lnNumber = double.MinValue;
+                            if (double.TryParse((string)loObject, out lnNumber))
+                            {
+                                ldR = new DateTime(1970, 1, 1).AddMilliseconds(lnNumber);
+                                ldR = DateTime.SpecifyKind(ldR, DateTimeKind.Utc);
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (ldR.Kind == DateTimeKind.Unspecified)
+            {
+                //// Convert to time zone specified in configuration
+                object loTimeZoneId = MaxConfigurationLibrary.GetValue(MaxEnumGroup.ScopeProcess, MaxConvertLibrary.MaxTimeZoneIdKey);
+                if (null == loTimeZoneId || (loTimeZoneId is string && string.IsNullOrEmpty((string)loTimeZoneId)))
+                {
+                    loTimeZoneId = MaxConfigurationLibrary.GetValue(MaxEnumGroup.ScopeAny, MaxConvertLibrary.MaxTimeZoneIdKey);
+                }
+
+                if (null != loTimeZoneId && loTimeZoneId is string)
+                {
+                    string lsTimeZoneId = (string)loTimeZoneId;
+#if net4_52 || netcore1
+                    TimeZoneInfo loTimeZone = TimeZoneInfo.FindSystemTimeZoneById(lsTimeZoneId);
+                    if (null != loTimeZone)
+                    {
+                        ldR = TimeZoneInfo.ConvertTimeToUtc(ldR, loTimeZone);
+                    }
+#endif
                 }
             }
 
@@ -527,7 +569,35 @@ namespace MaxFactry.Core.Provider
         public virtual DateTime ConvertToDateTimeFromUtc(object loObject)
         {
             DateTime loR = this.ConvertToDateTime(loObject);
-            return loR.ToLocalTime();
+            if (loR.Kind == DateTimeKind.Utc)
+            {
+                //// Convert to time zone specified in configuration
+                object loTimeZoneId = MaxConfigurationLibrary.GetValue(MaxEnumGroup.ScopeProcess, MaxConvertLibrary.MaxTimeZoneIdKey);
+                if (null == loTimeZoneId || (loTimeZoneId is string && string.IsNullOrEmpty((string)loTimeZoneId)))
+                {
+                    loTimeZoneId = MaxConfigurationLibrary.GetValue(MaxEnumGroup.ScopeAny, MaxConvertLibrary.MaxTimeZoneIdKey);
+                }
+
+                if (null != loTimeZoneId && loTimeZoneId is string)
+                {
+                    string lsTimeZoneId = (string)loTimeZoneId;
+#if net4_52 || netcore1
+                    TimeZoneInfo loTimeZone = TimeZoneInfo.FindSystemTimeZoneById(lsTimeZoneId);
+                    if (null != loTimeZone)
+                    {
+                        loR = TimeZoneInfo.ConvertTime(loR, loTimeZone);
+                    }
+#endif
+                }
+
+                if (loR.Kind == DateTimeKind.Utc)
+                {
+                    loR = loR.ToLocalTime();
+                }
+            }
+
+
+            return loR;
         }
 
         /// <summary>
