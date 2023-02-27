@@ -2,12 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <RootNamespace>MaxFactry.Core_NC_6._0</RootNamespace>
+    <RootNamespace>MaxFactry.Core</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-	  <Version>1.0.6</Version>
-	  <AssemblyVersion>1.0.6</AssemblyVersion>
-	  <FileVersion>2022.11.09.02</FileVersion>
+	  <Version>1.0.7.1</Version>
+	  <AssemblyVersion>1.0.7.1</AssemblyVersion>
+	  <FileVersion>2023.02.27.01</FileVersion>
+	  <SignAssembly>True</SignAssembly>
+	  <AssemblyOriginatorKeyFile>MaxFactry.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

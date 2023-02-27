@@ -2,10 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>MaxFactry.Core_NC_3._1</RootNamespace>
-	  <Version>1.0.6</Version>
-	  <AssemblyVersion>1.0.6</AssemblyVersion>
-	  <FileVersion>2022.11.09.02</FileVersion>
+    <RootNamespace>MaxFactry.Core</RootNamespace>
+	  <Version>1.0.7.1</Version>
+	  <AssemblyVersion>1.0.7.1</AssemblyVersion>
+	  <FileVersion>2023.02.27.01</FileVersion>
+	  <SignAssembly>True</SignAssembly>
+	  <AssemblyOriginatorKeyFile>MaxFactry.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

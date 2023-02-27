@@ -25,6 +25,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{4D553FF4-6B73-4233-894B-C1DC602866AE}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\MaxFactry.Core.nuspec = .nuget\MaxFactry.Core.nuspec
+		.nuget\nuget.config = .nuget\nuget.config
 		.nuget\package.bat = .nuget\package.bat
 		.nuget\readme.md = .nuget\readme.md
 	EndProjectSection

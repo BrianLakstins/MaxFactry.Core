@@ -2,7 +2,7 @@
 <package  xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>    
     <id>MaxFactry.Core</id>
-    <version>1.0.6</version>
+    <version>1.0.7.1</version>
     <title>MaxFactry Core</title>
     <authors>Brian Lakstins</authors>
     <owners>brianlakstins</owners>
