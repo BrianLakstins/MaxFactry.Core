@@ -786,9 +786,9 @@ namespace MaxFactry.Core.Provider
                 else if (loObject is string && ((string)loObject).Trim().Length > 0)
                 {
                     string lsValue = ((string)loObject).Trim();
-                    if (lsValue.IndexOf(".") >= 0)
+                    if (lsValue.IndexOf(".") > 0)
                     {
-                        lsValue = lsValue.Substring(0, lsValue.IndexOf('.'));
+                        lsValue = lsValue.Substring(0, lsValue.IndexOf("."));
                     }
 
                     try
@@ -916,7 +916,7 @@ namespace MaxFactry.Core.Provider
                                 return double.Parse(lsDouble);
                             }
 
-                            if (lsDouble.IndexOf("E") > 0 && lnECount == 1)
+                            if (lsDouble.IndexOf("E") > 0 && lnECount == 1 && lsDouble.IndexOf("E") < lsDouble.Length - 1)
                             {
                                 // Handle "-1.79769313486232E+308" coming from Lucene and any other too large or small numbers.
                                 string[] laExponentialNotation = lsDouble.Split('E');
