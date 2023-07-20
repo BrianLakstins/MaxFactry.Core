@@ -32,6 +32,7 @@
     <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\Interface\IMaxFactryLibraryProvider.cs" Link="Core\Library\Interface\IMaxFactryLibraryProvider.cs" />
     <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\Interface\IMaxLogLibraryProvider.cs" Link="Core\Library\Interface\IMaxLogLibraryProvider.cs" />
     <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\Interface\IMaxMetaLibraryProvider.cs" Link="Core\Library\Interface\IMaxMetaLibraryProvider.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\Interface\IMaxSecurityLibraryProvider.cs" Link="Core\Library\Interface\IMaxSecurityLibraryProvider.cs" />
     <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\Interface\IMaxValidationLibraryProvider.cs" Link="Core\Library\Interface\IMaxValidationLibraryProvider.cs" />
     <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\MaxCompressionLibrary.cs" Link="Core\Library\MaxCompressionLibrary.cs" />
     <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\MaxConfigurationLibrary.cs" Link="Core\Library\MaxConfigurationLibrary.cs" />
@@ -40,6 +41,7 @@
     <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\MaxFactryLibrary.cs" Link="Core\Library\MaxFactryLibrary.cs" />
     <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\MaxLogLibrary.cs" Link="Core\Library\MaxLogLibrary.cs" />
     <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\MaxMetaLibrary.cs" Link="Core\Library\MaxMetaLibrary.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\MaxSecurityLibrary.cs" Link="Core\Library\MaxSecurityLibrary.cs" />
     <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\MaxValidationLibrary.cs" Link="Core\Library\MaxValidationLibrary.cs" />
     <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\Provider\MaxCompressionLibraryDefaultProvider.cs" Link="Core\Library\Provider\MaxCompressionLibraryDefaultProvider.cs" />
     <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\Provider\MaxConfigurationLibraryDefaultProvider.cs" Link="Core\Library\Provider\MaxConfigurationLibraryDefaultProvider.cs" />
@@ -49,6 +51,7 @@
     <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\Provider\MaxLogLibraryBaseProvider.cs" Link="Core\Library\Provider\MaxLogLibraryBaseProvider.cs" />
     <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\Provider\MaxLogLibraryDefaultProvider.cs" Link="Core\Library\Provider\MaxLogLibraryDefaultProvider.cs" />
     <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\Provider\MaxMetaLibraryDefaultProvider.cs" Link="Core\Library\Provider\MaxMetaLibraryDefaultProvider.cs" />
+    <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\Provider\MaxSecurityLibraryDefaultProvider.cs" Link="Core\Library\Provider\MaxSecurityLibraryDefaultProvider.cs" />
     <Compile Include="..\MaxFactry.Core-NF-2.0\Core\Library\Provider\MaxValidationLibraryDefaultProvider.cs" Link="Core\Library\Provider\MaxValidationLibraryDefaultProvider.cs" />
     <Compile Include="..\MaxFactry.Core-NF-2.0\Core\MaxIndex.cs" Link="Core\MaxIndex.cs" />
     <Compile Include="..\MaxFactry.Core-NF-2.0\Core\MaxIndexCollection.cs" Link="Core\MaxIndexCollection.cs" />
