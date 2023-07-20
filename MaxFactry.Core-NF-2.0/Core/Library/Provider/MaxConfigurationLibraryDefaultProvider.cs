@@ -37,6 +37,7 @@
 // <change date="6/4/2020" author="Brian A. Lakstins" description="Updated for change to base class.  Updated to allow using provider config to set MaxConfigurationLibrary config.">
 // <change date="6/5/2020" author="Brian A. Lakstins" description="Updated how global and passed configuration can be used used to populate the values for this configuration provider.">
 // <change date="6/5/2020" author="Brian A. Lakstins" description="Fix setting value during initialization to use the method.">
+// <change date="7/20/2023" author="Brian A. Lakstins" description="Remove creation of error folder.">
 // </changelog>
 #endregion
 
@@ -343,7 +344,7 @@ namespace MaxFactry.Core.Provider
 
             if (!Directory.Exists(lsProductFolder))
             {
-                string[] laFolderList = new string[] { string.Empty, "data", "log", "error" };
+                string[] laFolderList = new string[] { string.Empty, "data", "log" };
                 foreach (string lsFolderExt in laFolderList)
                 {
                     string lsFolder = Path.Combine(lsProductFolder, lsFolderExt);

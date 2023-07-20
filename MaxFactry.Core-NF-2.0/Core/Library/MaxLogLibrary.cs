@@ -35,6 +35,7 @@
 // <change date="7/18/2019" author="Brian A. Lakstins" description="Add ability to configure log level in core.">
 // <change date="4/24/2020" author="Brian A. Lakstins" description="Remove performance counter logging.">
 // <change date="10/11/2021" author="Brian A. Lakstins" description="Updated to handle expanded logging levels.  Combined GetRecent into a single method">
+// <change date="7/20/2023" author="Brian A. Lakstins" description="Add constant for configuration name.">
 // </changelog>
 #endregion
 
@@ -92,6 +93,8 @@ namespace MaxFactry.Core
 
         private static MaxEnumGroup _nLevel = MaxEnumGroup.LogGroup;
 
+        public static readonly string LogSettingName = "MaxFactoryLogSetting";
+
         /// <summary>
         /// Gets or sets the level to use for logging
         /// </summary>
@@ -101,13 +104,13 @@ namespace MaxFactry.Core
             {
                 if (MaxEnumGroup.LogGroup == _nLevel)
                 {
-                    object loLogSetting = MaxConfigurationLibrary.GetValue(MaxEnumGroup.ScopeProcess, "MaxFactoryLogSetting");
+                    object loLogSetting = MaxConfigurationLibrary.GetValue(MaxEnumGroup.ScopeProcess, LogSettingName);
                     if (null == loLogSetting)
                     {
-                        loLogSetting = MaxConfigurationLibrary.GetValue(MaxEnumGroup.ScopeSession, "MaxFactoryLogSetting");
+                        loLogSetting = MaxConfigurationLibrary.GetValue(MaxEnumGroup.ScopeSession, LogSettingName);
                         if (null == loLogSetting)
                         {
-                            loLogSetting = MaxConfigurationLibrary.GetValue(MaxEnumGroup.ScopeApplication, "MaxFactoryLogSetting");
+                            loLogSetting = MaxConfigurationLibrary.GetValue(MaxEnumGroup.ScopeApplication, LogSettingName);
                         }
                     }
 

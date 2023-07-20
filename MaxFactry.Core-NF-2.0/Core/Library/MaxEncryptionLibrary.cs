@@ -33,6 +33,7 @@
 // <change date="7/23/2016" author="Brian A. Lakstins" description="Add method to override defaults.">
 // <change date="7/26/2016" author="Brian A. Lakstins" description="Add methods for asymmetric Public Key encryption and signing.">
 // <change date="2/21/2018" author="Brian A. Lakstins" description="Add methods for random numbers.">
+// <change date="7/20/2023" author="Brian A. Lakstins" description="Add constants for configuration names.">
 // </changelog>
 #endregion
 
@@ -66,6 +67,16 @@ namespace MaxFactry.Core
         /// Constant to reference Sha256
         /// </summary>
         public const string SHA256Hash = "SHA256";
+
+        /// <summary>
+        /// Constant to use for pass phrase name in configuration
+        /// </summary>
+        public const string PassphraseConfigName = "MaxEncryptionDefaultPassphrase";
+
+        /// <summary>
+        /// Constant to use for entropy name in configuration
+        /// </summary>
+        public const string EntropyConfigName = "MaxEncryptionDefaultEntropy";
 
         /// <summary>
         /// Gets the single instance of this class.
