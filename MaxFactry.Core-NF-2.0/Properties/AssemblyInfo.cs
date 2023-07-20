@@ -50,7 +50,7 @@ using System.Runtime.InteropServices;
 #endif
 
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Lakstins Family, LLC (BalCoding)")]
+[assembly: AssemblyCompany("Lakstins Family, LLC")]
 [assembly: AssemblyCopyright("Copyright © Brian A. Lakstins (http://www.lakstins.com/brian/)")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -66,6 +66,6 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.20")]
-[assembly: AssemblyFileVersion("2023.04.30.01")]
-[assembly: AssemblyInformationalVersion("1.0.20")]
+[assembly: AssemblyVersion("1.0.21")]
+[assembly: AssemblyFileVersion("2023.07.20.01")]
+[assembly: AssemblyInformationalVersion("1.0.21")]
