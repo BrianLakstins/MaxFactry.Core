@@ -38,6 +38,7 @@
 // <change date="6/5/2020" author="Brian A. Lakstins" description="Updated how global and passed configuration can be used used to populate the values for this configuration provider.">
 // <change date="6/5/2020" author="Brian A. Lakstins" description="Fix setting value during initialization to use the method.">
 // <change date="7/20/2023" author="Brian A. Lakstins" description="Remove creation of error folder.">
+// <change date="7/24/2023" author="Brian A. Lakstins" description="Update how initial configuration is handled.">
 // </changelog>
 #endregion
 
@@ -61,6 +62,11 @@ namespace MaxFactry.Core.Provider
         private MaxIndex _oValueIndex = new MaxIndex();
 
         /// <summary>
+        /// Used with the config from initialize to set intial values for application and process scoped variables
+        /// </summary>
+        public const string InitialConfigName = "MaxConfigurationLibraryDefaultProvider.InitialConfig";
+
+        /// <summary>
         /// Initializes the provider.
         /// </summary>
         /// <param name="lsName">Name of the provider.</param>
@@ -74,10 +80,10 @@ namespace MaxFactry.Core.Provider
                 this.Name = lsNameConfig;
             }
 
-            MaxIndex loIndex = this.GetConfigValue(loConfig, "MaxConfigurationLibraryDefaultProviderIndex") as MaxIndex;
-            if (null != loIndex)
+            MaxIndex loInitialConfig = this.GetConfigValue(loConfig, InitialConfigName) as MaxIndex;
+            if (null != loInitialConfig)
             {
-                string[] laIndexKey = loIndex.GetSortedKeyList();
+                string[] laIndexKey = loInitialConfig.GetSortedKeyList();
                 MaxEnumGroup[] laScope = new MaxEnumGroup[] { MaxEnumGroup.ScopeApplication, MaxEnumGroup.ScopeProcess };
                 foreach (MaxEnumGroup loScope in laScope)
                 {
@@ -87,7 +93,7 @@ namespace MaxFactry.Core.Provider
                         if (lsIndexKey.StartsWith(lsScopeStart) && lsIndexKey.Length > lsScopeStart.Length)
                         {
                             string lsKey = lsIndexKey.Substring(lsScopeStart.Length);
-                            object loValue = loIndex[lsIndexKey];
+                            object loValue = loInitialConfig[lsIndexKey];
                             if (null != loValue)
                             {
                                 this.SetValue(loScope, lsKey, loValue);
