@@ -295,20 +295,21 @@ namespace MaxFactry.Core.Provider
         /// <returns>string to represent object</returns>
         public virtual string ConvertToSortString(object loObject)
         {
+            string lsR = string.Empty;
             if (null != loObject)
             {
                 if (loObject is string)
                 {
-                    return ((string)loObject).ToLower();
+                    lsR = ((string)loObject).ToLower();
                 }
                 else if (loObject is byte[])
                 {
                     char[] laChar = System.Text.UTF8Encoding.UTF8.GetChars((byte[])loObject);
-                    return new string(laChar);
+                    lsR = new string(laChar);
                 }
                 else if (loObject is DateTime)
                 {
-                    return ((DateTime)loObject).ToString("s") + ((DateTime)loObject).Millisecond.ToString("D4");
+                    lsR = ((DateTime)loObject).ToString("s") + ((DateTime)loObject).Millisecond.ToString("D4");
                 }
                 else if (loObject is int)
                 {
@@ -340,11 +341,11 @@ namespace MaxFactry.Core.Provider
 
                     if (lnInt >= 0)
                     {
-                        return "0" + lsInt;
+                        lsR = "0" + lsInt;
                     }
                     else
                     {
-                        return "_" + lsInt;
+                        lsR = "_" + lsInt;
                     }
                 }
                 else if (loObject is long)
@@ -377,11 +378,11 @@ namespace MaxFactry.Core.Provider
 
                     if (lnLong >= 0)
                     {
-                        return "0" + lsLong;
+                        lsR = "0" + lsLong;
                     }
                     else
                     {
-                        return "_" + lsLong;
+                        lsR = "_" + lsLong;
                     }
                 }
                 else if (loObject is double)
@@ -430,20 +431,22 @@ namespace MaxFactry.Core.Provider
 
                     if (lnDouble >= 0)
                     {
-                        return "0" + lsExponent + lsEDouble;
+                        lsR = "0" + lsExponent + lsEDouble;
                     }
                     else
                     {
-                        return "_" + lsExponent + lsEDouble;
+                        lsR = "_" + lsExponent + lsEDouble;
                     }
                 }
                 else
                 {
-                    return loObject.ToString();
+                    lsR = loObject.ToString();
                 }
             }
 
-            return string.Empty;
+            lsR += "\n";
+
+            return lsR;
         }
 
         /// <summary>

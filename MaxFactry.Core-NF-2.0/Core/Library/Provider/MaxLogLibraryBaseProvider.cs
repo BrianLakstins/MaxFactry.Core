@@ -114,6 +114,8 @@ namespace MaxFactry.Core.Provider
                 }
             }
 
+            lsR += "\r\n";
+
             return lsR;
         }
 
