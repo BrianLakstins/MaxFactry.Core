@@ -1,8 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>MaxFactry.Core</RootNamespace>
+	  <ImplicitUsings>enable</ImplicitUsings>
+	  <Nullable>enable</Nullable>
 	  <Version>1.0.24.1</Version>
 	  <AssemblyVersion>1.0.24.11</AssemblyVersion>
 	  <FileVersion>2024.03.08.01</FileVersion>
@@ -11,13 +13,12 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants>$(DefineConstants)TRACE;netcore1;netcore2;netcore2_1;netcore3_1</DefineConstants>
+	  <DefineConstants>$(DefineConstants)TRACE;netcore1;netcore2;netcore2_1;netcore3_1;netcore_6</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DefineConstants>$(DefineConstants)TRACE;netcore1;netcore2;netcore2_1;netcore3_1</DefineConstants>
+	  <DefineConstants>$(DefineConstants)TRACE;netcore1;netcore2;netcore2_1;netcore3_1;netcore_6</DefineConstants>
   </PropertyGroup>
-
 	<ItemGroup>
 		<Compile Include="..\MaxFactry.Core-NF-2.0\Core\Enum\MaxEnumGroup.cs" Link="Core\Enum\MaxEnumGroup.cs" />
 		<Compile Include="..\MaxFactry.Core-NF-2.0\Core\Exception\MaxException.cs" Link="Core\Exception\MaxException.cs" />
@@ -65,14 +66,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-    <Folder Include="Core\Enum\" />
-    <Folder Include="Core\Exception\" />
-    <Folder Include="Core\Factory\" />
-    <Folder Include="Core\Interface\" />
-    <Folder Include="Core\Library\Interface\" />
-    <Folder Include="Core\Library\Provider\" />
-    <Folder Include="Core\Structure\" />
-    <Folder Include="Core\Provider\" />
-  </ItemGroup>
-
+		<Folder Include="Core\Enum\" />
+		<Folder Include="Core\Exception\" />
+		<Folder Include="Core\Factory\" />
+		<Folder Include="Core\Interface\" />
+		<Folder Include="Core\Library\Interface\" />
+		<Folder Include="Core\Library\Provider\" />
+		<Folder Include="Core\Provider\" />
+		<Folder Include="Core\Structure\" />
+	</ItemGroup>
 </Project>
