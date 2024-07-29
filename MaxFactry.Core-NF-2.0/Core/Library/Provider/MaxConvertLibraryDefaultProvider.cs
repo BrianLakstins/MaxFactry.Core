@@ -55,6 +55,7 @@
 // <change date="5/23/2018" author="Brian A. Lakstins" description="Add support for sorting long type">
 // <change date="7/3/2019" author="Brian A. Lakstins" description="Updated exception logging to use structured logging.">
 // <change date="1/20/2021" author="Brian A. Lakstins" description="Updated object checking to not include types only with default deserialization types.">
+// <change date="7/29/2024" author="Brian A. Lakstins" description="Change default string for date conversion to ISO format.">
 // </changelog>
 #endregion
 
@@ -62,6 +63,7 @@ namespace MaxFactry.Core.Provider
 {
     using System;
     using System.Collections;
+    using System.Globalization;
     using System.Text;
 
     /// <summary>
@@ -262,30 +264,36 @@ namespace MaxFactry.Core.Provider
         }
 
         /// <summary>
-        /// Converts an object to a string using the provider associated with the Type.
+        /// Converts an object to a string
         /// </summary>
         /// <param name="loObject">Object to convert.</param>
         /// <returns>string to represent object</returns>
         public virtual string ConvertToString(object loObject)
         {
+            string lsR = string.Empty;
             if (null != loObject)
             {
                 if (loObject is string)
                 {
-                    return (string)loObject;
+                    lsR = (string)loObject;
                 }
                 else if (loObject is byte[])
                 {
                     char[] laChar = System.Text.UTF8Encoding.UTF8.GetChars((byte[])loObject);
-                    return new string(laChar);
+                    lsR = new string(laChar);
+                }
+                else if (loObject is DateTime)
+                {
+                    //// Use same format as javascript date .toISOString()
+                    lsR = ((DateTime)loObject).ToString("o", CultureInfo.InvariantCulture);
                 }
                 else
                 {
-                    return loObject.ToString();
+                    lsR = loObject.ToString();
                 }
             }
 
-            return string.Empty;
+            return lsR;
         }
 
         /// <summary>
