@@ -88,7 +88,7 @@ namespace MaxFactry.Core.Provider
         protected virtual string GetLogText(MaxLogEntryStructure loLogEntry)
         {
             string lsSep = "\r\n----------------------------------------------------------------" + Guid.NewGuid().ToString() + "\r\n";
-            string lsR = loLogEntry.Timestamp.ToString("HH:mm:ss.fffffff") + "\t" + loLogEntry.Level.ToString() + "\t" + loLogEntry.Name + "\r\n" + loLogEntry.MessageTemplate;
+            string lsR = loLogEntry.Timestamp.ToString("HH:mm:ss.fffffff") + "\t" + loLogEntry.Level.ToString() + "\t" + loLogEntry.Name + "\r\n" + loLogEntry.MessageTemplate + "\r\n";
             if (null != loLogEntry.Params && loLogEntry.Params.Length > 0)
             {
                 for (int lnL = 0; lnL < loLogEntry.Params.Length; lnL++)
