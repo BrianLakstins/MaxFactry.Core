@@ -87,35 +87,40 @@ namespace MaxFactry.Core.Provider
 
         protected virtual string GetLogText(MaxLogEntryStructure loLogEntry)
         {
-            string lsSep = "\r\n----------------------------------------------------------------30BA0D8A-1A3D-4DEF-8612-588DD2A8335B\r\n";
+            string lsSep = "\r\n----------------------------------------------------------------" + Guid.NewGuid().ToString() + "\r\n";
             string lsR = loLogEntry.Timestamp.ToString("HH:mm:ss.fffffff") + "\t" + loLogEntry.Level.ToString() + "\t" + loLogEntry.Name + "\r\n" + loLogEntry.MessageTemplate;
             if (null != loLogEntry.Params && loLogEntry.Params.Length > 0)
             {
-                lsR += lsSep;
                 for (int lnL = 0; lnL < loLogEntry.Params.Length; lnL++)
                 {
                     object loParam = loLogEntry.Params[lnL];
                     if (null != loParam)
                     {
-                        lsR += loParam.GetType().ToString() + lsSep;
-                        if (loParam is Exception)
+                        lsR += "Param #" + lnL + lsSep + loParam.GetType().ToString() + lsSep;
+                        try
                         {
-                            lsR += ((Exception)loParam).ToString() + lsSep;
+                            if (loParam is Exception)
+                            {
+                                lsR += ((Exception)loParam).ToString();
+                            }
+                            else if (loParam is string)
+                            {
+                                lsR += (string)loParam + lsSep;
+                            }
+                            else
+                            {
+                                lsR += MaxConvertLibrary.SerializeObjectToString(loParam) + lsSep;
+                            }
                         }
-                        else if (loParam is string)
+                        catch (Exception loE)
                         {
-                            lsR += (string)loParam + lsSep;
-                        }
-                        else
-                        {
-                            lsR += MaxConvertLibrary.SerializeObjectToString(loParam) + lsSep;
+                            lsR += "Exception adding param text: " + loE.ToString();
                         }
                     }
                 }
             }
 
             lsR += "\r\n";
-
             return lsR;
         }
 
