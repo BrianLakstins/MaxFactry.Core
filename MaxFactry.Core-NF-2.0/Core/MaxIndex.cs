@@ -49,6 +49,7 @@
 // <change date="6/13/2017" author="Brian A. Lakstins" description="Fix issue with settting _nIndexCurrent.">
 // <change date="3/11/2019" author="Brian A. Lakstins" description="Make integer checking smarter to prevent System.OverflowException when the key is all numbers.">
 // <change date="12/15/2020" author="Brian A. Lakstins" description="Add GetValueString using blank default">
+// <change date="6/3/2025" author="Brian A. Lakstins" description="Remove unused property">
 // </changelog>
 #endregion
 
@@ -825,37 +826,6 @@ namespace MaxFactry.Core
         public IDictionaryEnumerator GetEnumerator()
         {
             return new MaxIndexEnumerator(this);
-        }
-
-        protected MaxIndexItemStructure[] Items
-        {
-            get
-            {
-                int lnLengthSorted = 0;
-                int lnLengthRecent = 0;
-                if (null != this._aItemRecentList)
-                {
-                    lnLengthRecent += this._aItemRecentList.Length;
-                }
-
-                if (null != this._aItemSortedList)
-                {
-                    lnLengthSorted += this._aItemSortedList.Length;
-                }
-
-                MaxIndexItemStructure[] laR = new MaxIndexItemStructure[lnLengthRecent + lnLengthSorted];
-                if (null != this._aItemRecentList)
-                {
-                    this._aItemRecentList.CopyTo(laR, 0);
-                }
-
-                if (null != this._aItemSortedList)
-                {
-                    this._aItemSortedList.CopyTo(laR, lnLengthRecent);
-                }
-
-                return laR;
-            }
         }
 
         /// <summary>

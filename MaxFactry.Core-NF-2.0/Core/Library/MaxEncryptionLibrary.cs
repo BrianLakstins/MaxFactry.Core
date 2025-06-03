@@ -34,6 +34,7 @@
 // <change date="7/26/2016" author="Brian A. Lakstins" description="Add methods for asymmetric Public Key encryption and signing.">
 // <change date="2/21/2018" author="Brian A. Lakstins" description="Add methods for random numbers.">
 // <change date="7/20/2023" author="Brian A. Lakstins" description="Add constants for configuration names.">
+// <change date="6/3/2025" author="Brian A. Lakstins" description="Add default provider type">
 // </changelog>
 #endregion
 
@@ -92,6 +93,7 @@ namespace MaxFactry.Core
                         if (null == _oInstance)
                         {
                             _oInstance = new MaxEncryptionLibrary();
+                            _oInstance.DefaultProviderType = typeof(MaxFactry.Core.Provider.MaxEncryptionLibraryDefaultProvider);
                         }
                     }
                 }
