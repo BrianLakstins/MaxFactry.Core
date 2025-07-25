@@ -28,6 +28,7 @@
 #region Change Log
 // <changelog>
 // <change date="6/8/2016" author="Brian A. Lakstins" description="Initial creation">
+// <change date="7/25/2025" author="Brian A. Lakstins" description="Added default provider">
 // </changelog>
 #endregion
 
@@ -66,6 +67,7 @@ namespace MaxFactry.Core
                         if (null == _oInstance)
                         {
                             _oInstance = new MaxMetaLibrary();
+                            _oInstance.DefaultProviderType = typeof(MaxFactry.Core.Provider.MaxMetaLibraryDefaultProvider);
                         }
                     }
                 }

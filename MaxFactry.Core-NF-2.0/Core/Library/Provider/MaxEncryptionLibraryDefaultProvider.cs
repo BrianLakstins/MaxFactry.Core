@@ -31,6 +31,7 @@
 // <change date="4/20/2017" author="Brian A. Lakstins" description="Update VerifyDataConditional so that if the process fails false is just returned and the error is logged.">
 // <change date="2/21/2018" author="Brian A. Lakstins" description="Add methods for random numbers.">
 // <change date="6/4/2020" author="Brian A. Lakstins" description="Updated for change to base class.">
+// <change date="7/25/2025" author="Brian A. Lakstins" description="Updated for .net core 8">
 // </changelog>
 #endregion
 
@@ -38,7 +39,8 @@ namespace MaxFactry.Core.Provider
 {
     using System;
     using System.IO;
-#if net2  || netcore1 
+    using System.Runtime.InteropServices;
+#if net2 || netcore1
     using System.Security.Cryptography;
 #endif
     using System.Text;
@@ -422,7 +424,7 @@ namespace MaxFactry.Core.Provider
             return laKeyNew;
         }
 
-#if net2  
+#if net2 || netcore_8
         /// <summary>
         /// Encrypts the text using DPAPI (Key provided by local system)
         /// Used to encrypt pass phrases for general encryption routines.
@@ -1027,6 +1029,7 @@ namespace MaxFactry.Core.Provider
 
             return System.Text.Encoding.ASCII.GetBytes(this._sHeaderText);
         }
+
 #elif netcore1 || netstandard1_2
         /// <summary>
         /// Encrypts the text using DPAPI (Key provided by local system)
