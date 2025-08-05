@@ -39,6 +39,7 @@
 // <change date="6/5/2020" author="Brian A. Lakstins" description="Fix setting value during initialization to use the method.">
 // <change date="7/20/2023" author="Brian A. Lakstins" description="Remove creation of error folder.">
 // <change date="7/24/2023" author="Brian A. Lakstins" description="Update how initial configuration is handled.">
+// <change date="8/5/2025" author="Brian A. Lakstins" description="Update to include using net core libraries that match .net framework">
 // </changelog>
 #endregion
 
@@ -184,7 +185,7 @@ namespace MaxFactry.Core.Provider
             return this.GetScopeKeyConditional(loScope);
         }
 
-#if net2 
+#if net2 || netcore2_1
         /// <summary>
         /// Gets the current value based on the key.
         /// </summary>
@@ -327,7 +328,7 @@ namespace MaxFactry.Core.Provider
         }
 #endif
 
-#if net2
+#if net2|| netcore_6
 
         protected virtual bool CreateApplicationDataFolders(string lsCompanyFolder, string lsProductFolder)
         {
@@ -375,6 +376,12 @@ namespace MaxFactry.Core.Provider
 
             return lbR;
         }
+
+#else
+    protected virtual bool CreateApplicationDataFolders(string lsCompanyFolder, string lsProductFolder)
+    {
+            throw new NotImplementedException();
+    }
 #endif 
 
 #if net2 || netcore1 || netstandard1_4
