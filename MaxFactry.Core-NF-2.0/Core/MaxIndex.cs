@@ -50,6 +50,7 @@
 // <change date="3/11/2019" author="Brian A. Lakstins" description="Make integer checking smarter to prevent System.OverflowException when the key is all numbers.">
 // <change date="12/15/2020" author="Brian A. Lakstins" description="Add GetValueString using blank default">
 // <change date="6/3/2025" author="Brian A. Lakstins" description="Remove unused property">
+// <change date="12/1/2025" author="Brian A. Lakstins" description="Speed up adding a new item without a key">
 // </changelog>
 #endregion
 
@@ -579,7 +580,7 @@ namespace MaxFactry.Core
         public void Add(object loValue)
         {
             string lsKey = PadKey(this.Count);
-            this.Add(lsKey, loValue);
+            this.AddWithoutKeyCheck(lsKey, loValue);
         }
 
         /// <summary>
@@ -1038,7 +1039,7 @@ namespace MaxFactry.Core
         /// </summary>
         /// <param name="lnKey">Integer to pad.</param>
         /// <returns>Integer with 9 characters padded with 0 to the left.</returns>
-        private static string PadKey(int lnKey)
+        public static string PadKey(int lnKey)
         {
             string lsKey = lnKey.ToString();
             if (lsKey.Length < 10)
