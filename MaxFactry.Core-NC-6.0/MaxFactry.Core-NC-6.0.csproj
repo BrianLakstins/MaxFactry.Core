@@ -1,24 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <RootNamespace>MaxFactry.Core</RootNamespace>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-	  <Version>1.0.24.86</Version>
-	  <AssemblyVersion>1.0.24.86</AssemblyVersion>
-	  <FileVersion>2025.12.02.01</FileVersion>
-	  <SignAssembly>True</SignAssembly>
-	  <AssemblyOriginatorKeyFile>MaxFactry.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<RootNamespace>MaxFactry.Core</RootNamespace>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<Version>1.0.26.01</Version>
+		<AssemblyVersion>1.0.26.01</AssemblyVersion>
+		<FileVersion>2025.12.29.01</FileVersion>
+		<SignAssembly>True</SignAssembly>
+		<AssemblyOriginatorKeyFile>MaxFactry.snk</AssemblyOriginatorKeyFile>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants>$(DefineConstants)TRACE;netcore1;netcore2;netcore2_1;netcore3_1;netcore_6</DefineConstants>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DefineConstants>$(DefineConstants)TRACE;netcore1;netcore2;netcore2_1;netcore3_1;netcore_6</DefineConstants>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DefineConstants>$(DefineConstants)TRACE;netcore1;netcore2;netcore2_1;netcore3_1;netcore_6</DefineConstants>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<DefineConstants>$(DefineConstants)TRACE;netcore1;netcore2;netcore2_1;netcore3_1;netcore_6</DefineConstants>
+	</PropertyGroup>
 
 	<ItemGroup>
 		<Compile Include="..\MaxFactry.Core-NF-2.0\Core\Enum\MaxEnumGroup.cs" Link="Core\Enum\MaxEnumGroup.cs" />
@@ -67,18 +67,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
-    <Folder Include="Core\Enum\" />
-    <Folder Include="Core\Exception\" />
-    <Folder Include="Core\Factory\" />
-    <Folder Include="Core\Interface\" />
-    <Folder Include="Core\Library\Interface\" />
-    <Folder Include="Core\Library\Provider\" />
-    <Folder Include="Core\Provider\" />
-    <Folder Include="Core\Structure\" />
-  </ItemGroup>
+		<Folder Include="Core\Enum\" />
+		<Folder Include="Core\Exception\" />
+		<Folder Include="Core\Factory\" />
+		<Folder Include="Core\Interface\" />
+		<Folder Include="Core\Library\Interface\" />
+		<Folder Include="Core\Library\Provider\" />
+		<Folder Include="Core\Provider\" />
+		<Folder Include="Core\Structure\" />
+	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="System.Configuration.ConfigurationManager" Version="9.0.8" />
+		<PackageReference Include="System.Configuration.ConfigurationManager" Version="9.0.8" />
 	</ItemGroup>
 
 </Project>
