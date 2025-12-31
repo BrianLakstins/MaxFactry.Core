@@ -430,15 +430,23 @@ namespace MaxFactry.Core.Provider
         }
 
 
-#if net4_52 || netcore1
-        protected SymmetricAlgorithm GetAlgorithmConditional()
-        {
-            return Aes.Create();
-        }
-#elif net2
+#if net2
+        /// <summary>
+        /// Use RijndaelManaged for .net Framework
+        /// </summary>
+        /// <returns></returns>
         protected SymmetricAlgorithm GetAlgorithmConditional()
         {
             return new RijndaelManaged();
+        }
+#else
+        /// <summary>
+        /// Use AES for .net core or anything new to come along after that
+        /// </summary>
+        /// <returns></returns>
+        protected SymmetricAlgorithm GetAlgorithmConditional()
+        {
+            return Aes.Create();            
         }
 #endif
 
