@@ -32,6 +32,7 @@
 // <change date="2/21/2018" author="Brian A. Lakstins" description="Add methods for random numbers.">
 // <change date="6/4/2020" author="Brian A. Lakstins" description="Updated for change to base class.">
 // <change date="7/25/2025" author="Brian A. Lakstins" description="Updated for .net core 8">
+// <change date="12/31/2025" author="Brian A. Lakstins" description="Added new version that limits block size to 128 since that's what .net core 8 supports">
 // </changelog>
 #endregion
 
@@ -62,10 +63,6 @@ namespace MaxFactry.Core.Provider
         /// </summary>
         private string _sEntropy = "ThisIsTheEntropyStringUsedAsBytesToProtectStrings";
 
-        /// <summary>
-        /// Header to show that the data is encrypted
-        /// </summary>
-        private byte[] _aHeader = null;
 
         /// <summary>
         /// Iterations used when generating key data
@@ -91,6 +88,11 @@ namespace MaxFactry.Core.Provider
         /// Version created for this provider
         /// </summary>
         private int _nVersion2 = 20170116;
+        
+        /// <summary>
+        /// Version created for this provider
+        /// </summary>
+        private int _nVersion3 = 20251231;
 
         /// <summary>
         /// Random seed
@@ -102,7 +104,6 @@ namespace MaxFactry.Core.Provider
         /// </summary>
         public MaxEncryptionLibraryDefaultProvider()
         {
-            this._aHeader = this.Encode(this._sHeaderText);
         }
 
         /// <summary>
@@ -483,7 +484,8 @@ namespace MaxFactry.Core.Provider
             }
 
             //// RijndaelManaged Key size and Block size max are 256 as of 1/16/2017 - should use that as the size in case the max changes
-            byte[] loR = this.EncryptWithHeaderAndSalt(laValue, lsPassPhrase, this._nVersion2);
+            //// Block size is reduced to 128 with _nVersion3 to be compatible with AES standard
+            byte[] loR = this.EncryptWithHeaderAndSalt(laValue, lsPassPhrase, this._nVersion3);
             return loR;
         }
 
@@ -504,40 +506,6 @@ namespace MaxFactry.Core.Provider
             return loR;
         }
 
-        /// <summary>
-        /// Creates an object that is descended from SymmetricAlgorithm
-        /// with the maximum key size and block size.
-        /// </summary>
-        /// <param name="loAlgorithm">Descendant of SymmetricAlgorithm</param>
-        /// <returns>Instantiated class with Maximum security settings allowed</returns>
-        private void SetToMaximumLegalKeySize(SymmetricAlgorithm loAlgorithm)
-        {
-            foreach (KeySizes loKeySize in loAlgorithm.LegalKeySizes)
-            {
-                if (loKeySize.MaxSize > loAlgorithm.KeySize)
-                {
-                    loAlgorithm.KeySize = loKeySize.MaxSize;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Creates an object that is descended from SymmetricAlgorithm
-        /// with the maximum key size and block size.
-        /// </summary>
-        /// <param name="loAlgorithm">Descendant of SymmetricAlgorithm</param>
-        /// <returns>Instantiated class with Maximum security settings allowed</returns>
-        private void SetToMaximumLegalBlockSize(SymmetricAlgorithm loAlgorithm)
-        {
-            foreach (KeySizes loBlockSize in loAlgorithm.LegalBlockSizes)
-            {
-                if (loBlockSize.MaxSize > loAlgorithm.BlockSize)
-                {
-                    loAlgorithm.BlockSize = loBlockSize.MaxSize;
-                }
-            }
-        }
-
         protected virtual byte[] GetSaltConditional(int lnVersion)
         {
             int lnSize = this.GetSaltSize(lnVersion);
@@ -553,7 +521,7 @@ namespace MaxFactry.Core.Provider
         {
             if (lsAlgorithmName == "AES" || lsAlgorithmName == "RijndaelManaged")
             {
-                SymmetricAlgorithm loAlgorithm = new RijndaelManaged();
+                SymmetricAlgorithm loAlgorithm = Aes.Create();
                 loAlgorithm.KeySize = lnKeySize;
                 loAlgorithm.BlockSize = lnBlockSize;
 
@@ -608,7 +576,7 @@ namespace MaxFactry.Core.Provider
         {
             if (lsAlgorithmName == "AES" || lsAlgorithmName == "RijndaelManaged")
             {
-                SymmetricAlgorithm loAlgorithm = new RijndaelManaged();
+                SymmetricAlgorithm loAlgorithm = Aes.Create();
                 loAlgorithm.KeySize = lnKeySize;
                 loAlgorithm.BlockSize = lnBlockSize;
 
@@ -1018,13 +986,13 @@ namespace MaxFactry.Core.Provider
 
         protected virtual byte[] GetHeaderConditional(int lnVersion)
         {
-            if (lnVersion == this._nVersion2)
+            if (lnVersion >= this._nVersion2)
             {
-                return System.Text.Encoding.UTF8.GetBytes("IsEncryptedMaxFactry");
+                return System.Text.Encoding.UTF8.GetBytes(this._sHeaderText);
             }
             else if (lnVersion == this._nVersion1)
             {
-                return System.Text.Encoding.Unicode.GetBytes("IsEncryptedMaxFactry");
+                return System.Text.Encoding.Unicode.GetBytes(this._sHeaderText);
             }
 
             return System.Text.Encoding.ASCII.GetBytes(this._sHeaderText);
@@ -1189,22 +1157,19 @@ namespace MaxFactry.Core.Provider
 
         protected virtual int GetSaltSize(int lnVersion)
         {
-            if (lnVersion == this._nVersion2)
-            {
-                return 256;
-            }
-
             return 256;
         }
 
         protected virtual byte[] GetEncryptedContent(byte[] laContent, string lsPassPhrase, byte[] loSalt, int lnVersion)
         {
-            if (lnVersion == this._nVersion2)
+            int lnKeySize = 256;
+            int lnBlockSize = 256;
+            if (lnVersion >= this._nVersion3)
             {
-                return this.GetEncryptedContentConditional(laContent, lsPassPhrase, loSalt, "AES", 256, 256);
+                lnBlockSize = 128;
             }
 
-            return this.GetEncryptedContentConditional(laContent, lsPassPhrase, loSalt, "AES", 256, 256);
+            return this.GetEncryptedContentConditional(laContent, lsPassPhrase, loSalt, "AES", lnKeySize, lnBlockSize);
         }
 
         /// <summary>
@@ -1250,12 +1215,14 @@ namespace MaxFactry.Core.Provider
 
         protected virtual byte[] GetDecryptedContent(byte[] laValueEncrypted, string lsPassPhrase, byte[] loSalt, int lnVersion)
         {
-            if (lnVersion == this._nVersion2)
+            int lnKeySize = 256;
+            int lnBlockSize = 256;
+            if (lnVersion >= this._nVersion3)
             {
-                return this.GetDecryptedContentConditional(laValueEncrypted, lsPassPhrase, loSalt, "AES", 256, 256);
+                lnBlockSize = 128;
             }
 
-            return this.GetDecryptedContentConditional(laValueEncrypted, lsPassPhrase, loSalt, "AES", 256, 256);
+            return this.GetDecryptedContentConditional(laValueEncrypted, lsPassPhrase, loSalt, "AES", lnKeySize, lnBlockSize);
         }
 
         protected byte[] Encode(string lsText)
