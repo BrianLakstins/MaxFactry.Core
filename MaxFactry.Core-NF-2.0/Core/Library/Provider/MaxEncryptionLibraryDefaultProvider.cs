@@ -33,6 +33,7 @@
 // <change date="6/4/2020" author="Brian A. Lakstins" description="Updated for change to base class.">
 // <change date="7/25/2025" author="Brian A. Lakstins" description="Updated for .net core 8">
 // <change date="12/31/2025" author="Brian A. Lakstins" description="Added new version that limits block size to 128 since that's what .net core 8 supports">
+// <change date="12/31/2025" author="Brian A. Lakstins" description="Arrange code for different .net versions">
 // </changelog>
 #endregion
 
@@ -41,9 +42,7 @@ namespace MaxFactry.Core.Provider
     using System;
     using System.IO;
     using System.Runtime.InteropServices;
-#if net2 || netcore1
     using System.Security.Cryptography;
-#endif
     using System.Text;
     using MaxFactry.Core;
 
@@ -425,6 +424,24 @@ namespace MaxFactry.Core.Provider
             return laKeyNew;
         }
 
+        protected SymmetricAlgorithm GetAlgorithm()
+        {
+            return this.GetAlgorithmConditional();
+        }
+
+
+#if net4_52 || netcore1
+        protected SymmetricAlgorithm GetAlgorithmConditional()
+        {
+            return Aes.Create();
+        }
+#elif net2
+        protected SymmetricAlgorithm GetAlgorithmConditional()
+        {
+            return new RijndaelManaged();
+        }
+#endif
+
 #if net2 || netcore_8
         /// <summary>
         /// Encrypts the text using DPAPI (Key provided by local system)
@@ -516,12 +533,11 @@ namespace MaxFactry.Core.Provider
             return loSalt;
         }
 
-
         protected virtual byte[] GetEncryptedContentConditional(byte[] laContent, string lsPassPhrase, byte[] loSalt, string lsAlgorithmName, int lnKeySize, int lnBlockSize)
         {
             if (lsAlgorithmName == "AES" || lsAlgorithmName == "RijndaelManaged")
             {
-                SymmetricAlgorithm loAlgorithm = Aes.Create();
+                SymmetricAlgorithm loAlgorithm = this.GetAlgorithm();
                 loAlgorithm.KeySize = lnKeySize;
                 loAlgorithm.BlockSize = lnBlockSize;
 
@@ -576,7 +592,7 @@ namespace MaxFactry.Core.Provider
         {
             if (lsAlgorithmName == "AES" || lsAlgorithmName == "RijndaelManaged")
             {
-                SymmetricAlgorithm loAlgorithm = Aes.Create();
+                SymmetricAlgorithm loAlgorithm = this.GetAlgorithm();
                 loAlgorithm.KeySize = lnKeySize;
                 loAlgorithm.BlockSize = lnBlockSize;
 
