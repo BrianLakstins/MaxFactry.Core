@@ -33,6 +33,7 @@
 // <change date="7/7/2021" author="Brian A. Lakstins" description="Add static logging.">
 // <change date="7/8/2021" author="Brian A. Lakstins" description="Fix issue with log file extension.">
 // <change date="10/11/2021" author="Brian A. Lakstins" description="Updated to handle expanded logging levels.">
+// <change date="4/27/2026" author="Brian A. Lakstins" description="Add stack trace to logging exceptions.">
 // </changelog>
 #endregion
 
@@ -102,6 +103,8 @@ namespace MaxFactry.Core.Provider
                             if (loParam is Exception)
                             {
                                 lsR += ((Exception)loParam).ToString();
+                                lsR += "\r\nException Stack Trace:\r\n" + ((Exception)loParam).StackTrace;
+                                lsR += "\r\nEnvironment Stack Trace:\r\n" + Environment.StackTrace;
                             }
                             else if (loParam is string)
                             {
