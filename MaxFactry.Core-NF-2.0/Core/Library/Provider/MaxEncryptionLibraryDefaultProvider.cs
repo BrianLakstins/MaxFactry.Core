@@ -34,17 +34,19 @@
 // <change date="7/25/2025" author="Brian A. Lakstins" description="Updated for .net core 8">
 // <change date="12/31/2025" author="Brian A. Lakstins" description="Added new version that limits block size to 128 since that's what .net core 8 supports">
 // <change date="12/31/2025" author="Brian A. Lakstins" description="Arrange code for different .net versions">
+// <change date="5/18/2026" author="Brian A. Lakstins" description="Added JWK formatted keys">
 // </changelog>
 #endregion
 
 namespace MaxFactry.Core.Provider
 {
+    using MaxFactry.Core;
     using System;
     using System.IO;
     using System.Runtime.InteropServices;
     using System.Security.Cryptography;
     using System.Text;
-    using MaxFactry.Core;
+    using System.Text.RegularExpressions;
 
     /// <summary>
     /// Library to provide encryption functionality
@@ -429,6 +431,50 @@ namespace MaxFactry.Core.Provider
             return this.GetAlgorithmConditional();
         }
 
+        /// <summary>
+        /// Encodes a byte array as base64url (RFC 4648 §5, no padding) — used for JWK fields.
+        /// </summary>
+        /// <param name="laData">Bytes to encode</param>
+        /// <returns>base64url string</returns>
+        protected virtual string Base64UrlEncode(byte[] laData)
+        {
+            return Convert.ToBase64String(laData)
+                .TrimEnd('=')
+                .Replace('+', '-')
+                .Replace('/', '_');
+        }
+
+        /// <summary>
+        /// Decodes a base64url string to a byte array (RFC 4648 §5, no padding) — used for JWK fields.
+        /// </summary>
+        /// <param name="lsValue">base64url string to decode</param>
+        /// <returns>decoded byte array</returns>
+        protected virtual byte[] Base64UrlDecode(string lsValue)
+        {
+            string lsDecode = lsValue.Replace('-', '+').Replace('_', '/');
+            switch (lsDecode.Length % 4)
+            {
+                case 2: lsDecode += "=="; break;
+                case 3: lsDecode += "="; break;
+            }
+            return Convert.FromBase64String(lsDecode);
+        }
+
+        /// <summary>
+        /// Extracts a single string-valued field from a flat JWK JSON object.
+        /// JWK values are base64url for key components, or short ASCII for kty/use/alg/kid —
+        /// none of which contain double quotes — so a non-quote greedy match is safe.
+        /// </summary>
+        /// <param name="lsJwk">The JWK as a JSON string</param>
+        /// <param name="lsField">The field name to extract (e.g. "n", "e", "kty")</param>
+        /// <returns>The field value if present, otherwise null</returns>
+        protected virtual string GetJwkField(string lsJwk, string lsField)
+        {
+            Match loMatch = Regex.Match(
+                lsJwk,
+                "\"" + Regex.Escape(lsField) + "\"\\s*:\\s*\"([^\"]*)\"");
+            return loMatch.Success ? loMatch.Groups[1].Value : null;
+        }
 
 #if net2
         /// <summary>
@@ -497,7 +543,7 @@ namespace MaxFactry.Core.Provider
         /// <returns>encrypted version of the byte array</returns>
         protected virtual byte[] EncryptConditional(byte[] laValue, string lsPassPhrase)
         {
-            if (lsPassPhrase.StartsWith("MaxKey:") || lsPassPhrase.StartsWith("MaxKeyName:"))
+            if (lsPassPhrase.StartsWith("MaxKey:") || lsPassPhrase.StartsWith("MaxKeyName:") || lsPassPhrase.StartsWith("JWK:"))
             {
                 return this.EncryptAsymmetric(laValue, lsPassPhrase);
             }
@@ -686,16 +732,37 @@ namespace MaxFactry.Core.Provider
         protected RSACryptoServiceProvider GetAsymetricProvider(string lsPassphrase)
         {
             RSACryptoServiceProvider loRSA = new RSACryptoServiceProvider();
+            loRSA.PersistKeyInCsp = false;
             if (lsPassphrase.StartsWith("MaxKeyName:"))
             {
                 CspParameters loParameters = new CspParameters();
                 loParameters.KeyContainerName = lsPassphrase.Substring("MaxKeyName:".Length);
+                loRSA.PersistKeyInCsp = true;
                 loRSA = new RSACryptoServiceProvider(loParameters);
             }
             else if (lsPassphrase.StartsWith("MaxKey:"))
             {
                 MaxIndex loKeyIndex = MaxConvertLibrary.DeserializeObject(lsPassphrase.Substring("MaxKey:".Length), typeof(MaxIndex)) as MaxIndex;
                 RSAParameters loKey = this.GetKey(loKeyIndex);
+                loRSA.ImportParameters(loKey);
+            }
+            else if (lsPassphrase.StartsWith("JWK:"))  
+            {
+                string lsJwk = lsPassphrase.Substring("JWK:".Length);
+                RSAParameters loKey = new RSAParameters();
+                loKey.Modulus = this.Base64UrlDecode(this.GetJwkField(lsJwk, "n"));
+                loKey.Exponent = this.Base64UrlDecode(this.GetJwkField(lsJwk, "e"));
+                string lsD = this.GetJwkField(lsJwk, "d");
+                if (!string.IsNullOrEmpty(lsD))
+                {
+                    loKey.D = this.Base64UrlDecode(lsD);
+                    loKey.DP = this.Base64UrlDecode(this.GetJwkField(lsJwk, "dp"));
+                    loKey.DQ = this.Base64UrlDecode(this.GetJwkField(lsJwk, "dq"));
+                    loKey.InverseQ = this.Base64UrlDecode(this.GetJwkField(lsJwk, "qi"));
+                    loKey.P = this.Base64UrlDecode(this.GetJwkField(lsJwk, "p"));
+                    loKey.Q = this.Base64UrlDecode(this.GetJwkField(lsJwk, "q"));
+                }
+
                 loRSA.ImportParameters(loKey);
             }
             else
@@ -797,7 +864,13 @@ namespace MaxFactry.Core.Provider
         /// <summary>
         /// Gets a passphrase that is stored
         /// </summary>
-        /// <param name="lsName">Name of the passphrase to get</param>
+        /// <param name="lsName">
+        /// Name of the passphrase to get in format "<type>:<keyName>####"
+        /// <type> can be "MaxPublicKey" or "MaxPrivateKey"
+        /// #### is the key length (e.g. 2048) - if not provided, defaults to 2048
+        /// <keyName> is the name of the key.  If it starts with "JWK", the key will be returned in JSON Web Key format, otherwise it will be returned in a custom format that is not standard but is easier to work with in MaxFactry.
+        /// If the key is not found in the passphrase index, it will be generated and stored in the passphrase index for future retrieval.  If the key already exists in the passphrase index, it will be returned.  This allows for keys to be generated on demand and stored for later use without having to generate them all at once up front.
+        /// </param>
         /// <returns>Clear text version of the passphrase</returns>
         protected virtual string GetPassphraseConditional(string lsName)
         {
@@ -810,11 +883,9 @@ namespace MaxFactry.Core.Provider
             if (lsName.StartsWith("MaxPublicKey:") || lsName.StartsWith("MaxPrivateKey:"))
             {
                 string lsKeyName = lsName.Substring("MaxPublicKey:".Length);
-                bool lbIncludePrivate = false;
                 if (lsName.StartsWith("MaxPrivateKey:"))
                 {
                     lsKeyName = lsName.Substring("MaxPrivateKey:".Length);
-                    lbIncludePrivate = true;
                 }
 
                 CspParameters loParameters = new CspParameters();
@@ -822,7 +893,7 @@ namespace MaxFactry.Core.Provider
                 int lnKeyLength = 2048;
                 string lsKeyLength = string.Empty;
                 int lnK = lsKeyName.Length - 1;
-                while (char.IsNumber(lsKeyName[lnK]) && lnK >= 0)
+                while (lnK >= 0 && char.IsNumber(lsKeyName[lnK]))
                 {
                     lsKeyLength = lsKeyName[lnK] + lsKeyLength;
                     lnK--;
@@ -834,23 +905,50 @@ namespace MaxFactry.Core.Provider
                 }
 
                 RSACryptoServiceProvider loRSA = new RSACryptoServiceProvider(lnKeyLength, loParameters);
-                RSAParameters loKey = loRSA.ExportParameters(lbIncludePrivate);
-                MaxIndex loKeyIndex = new MaxIndex();
-                loKeyIndex.Add("Exponent", Convert.ToBase64String(loKey.Exponent));
-                loKeyIndex.Add("Modulus", Convert.ToBase64String(loKey.Modulus));
-                if (lbIncludePrivate)
+                RSAParameters loKey = loRSA.ExportParameters(true);
+                string lsPrivateKey = string.Empty;
+                string lsPublicKey = string.Empty;
+                if (lsKeyName.StartsWith("JWK"))
                 {
+                    StringBuilder loJwk = new StringBuilder();
+                    loJwk.Append("{\"kty\":\"RSA\"");
+                    loJwk.Append(",\"kid\":\"").Append(lsKeyName).Append("\"");
+                    loJwk.Append(",\"n\":\"").Append(this.Base64UrlEncode(loKey.Modulus)).Append("\"");
+                    loJwk.Append(",\"e\":\"").Append(this.Base64UrlEncode(loKey.Exponent)).Append("\"");
+                    lsPublicKey = loJwk.ToString() + "}";
+                    loJwk.Append(",\"d\":\"").Append(this.Base64UrlEncode(loKey.D)).Append("\"");
+                    loJwk.Append(",\"p\":\"").Append(this.Base64UrlEncode(loKey.P)).Append("\"");
+                    loJwk.Append(",\"q\":\"").Append(this.Base64UrlEncode(loKey.Q)).Append("\"");
+                    loJwk.Append(",\"dp\":\"").Append(this.Base64UrlEncode(loKey.DP)).Append("\"");
+                    loJwk.Append(",\"dq\":\"").Append(this.Base64UrlEncode(loKey.DQ)).Append("\"");
+                    loJwk.Append(",\"qi\":\"").Append(this.Base64UrlEncode(loKey.InverseQ)).Append("\"");
+
+                    loJwk.Append("}");
+                    lsPrivateKey = loJwk.ToString();
+                }
+                else
+                {
+                    MaxIndex loKeyIndex = new MaxIndex();
+                    loKeyIndex.Add("Exponent", Convert.ToBase64String(loKey.Exponent));
+                    loKeyIndex.Add("Modulus", Convert.ToBase64String(loKey.Modulus));
+                    lsPublicKey = MaxConvertLibrary.SerializeObjectToString(loKeyIndex);
                     loKeyIndex.Add("D", Convert.ToBase64String(loKey.D));
                     loKeyIndex.Add("DP", Convert.ToBase64String(loKey.DP));
                     loKeyIndex.Add("DQ", Convert.ToBase64String(loKey.DQ));
                     loKeyIndex.Add("InverseQ", Convert.ToBase64String(loKey.InverseQ));
                     loKeyIndex.Add("P", Convert.ToBase64String(loKey.P));
                     loKeyIndex.Add("Q", Convert.ToBase64String(loKey.Q));
+                    lsPrivateKey = MaxConvertLibrary.SerializeObjectToString(loKeyIndex);
                 }
 
-                string lsKey = MaxConvertLibrary.SerializeObjectToString(loKeyIndex);
-                this._oPassphraseIndex.Add(lsName, this.Protect(lsKey));
-                return lsKey;
+                this._oPassphraseIndex.Add("MaxPublicKey:" + lsKeyName, this.Protect(lsPublicKey));
+                this._oPassphraseIndex.Add("MaxPrivateKey:" + lsKeyName, this.Protect(lsPrivateKey));
+                if (lsName.StartsWith("MaxPrivateKey:"))
+                {
+                    return lsPrivateKey;
+                }
+
+                return lsPublicKey;
             }
 
             return string.Empty;

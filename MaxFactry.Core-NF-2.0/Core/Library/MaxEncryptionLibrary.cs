@@ -35,14 +35,13 @@
 // <change date="2/21/2018" author="Brian A. Lakstins" description="Add methods for random numbers.">
 // <change date="7/20/2023" author="Brian A. Lakstins" description="Add constants for configuration names.">
 // <change date="6/3/2025" author="Brian A. Lakstins" description="Add default provider type">
+// <change date="5/18/2026" author="Brian A. Lakstins" description="Fix comments">
 // </changelog>
 #endregion
 
 namespace MaxFactry.Core
 {
     using System;
-    using System.IO;
-    using System.Text;
 
     /// <summary>
     /// Library to provide encryption functionality
@@ -106,7 +105,7 @@ namespace MaxFactry.Core
         /// Encrypts the text using DPAPI (Key provided by local system)
         /// Used to encrypt pass phrases for general encryption routines.
         /// </summary>
-        /// <param name="loType">Type of object to protect, or type of provider to use to protect</param>
+        /// <param name="loType">Type used to determine provider</param>
         /// <param name="lsText">The text to encrypt</param>
         /// <returns>encrypted text</returns>
         public static string Protect(Type loType, string lsText)
@@ -124,7 +123,7 @@ namespace MaxFactry.Core
         /// Decrypts text using DPAPI (Key provided by local system)
         /// Used to decrypt pass phrases for general encryption routines.
         /// </summary>
-        /// <param name="loType">Type of object to protect, or type of provider to use to protect</param>
+        /// <param name="loType">Type used to determine provider</param>
         /// <param name="lsTextProtected">The encrypted version of text</param>
         /// <returns>The unencrypted version of text</returns>
         public static string Unprotect(Type loType, string lsTextProtected)
@@ -141,7 +140,7 @@ namespace MaxFactry.Core
         /// <summary>
         /// Default encryption routine with internal passphrase
         /// </summary>
-        /// <param name="loType">Type of object to protect, or type of provider to use to protect</param>
+        /// <param name="loType">Type used to determine provider</param>
         /// <param name="laValue">byte array to be encrypted</param>
         /// <returns>encrypted version of the byte array</returns>
         public static byte[] Encrypt(Type loType, byte[] laValue)
@@ -158,7 +157,7 @@ namespace MaxFactry.Core
         /// <summary>
         /// Default encryption routine with internal passphrase
         /// </summary>
-        /// <param name="loType">Type of object to protect, or type of provider to use to protect</param>
+        /// <param name="loType">Type used to determine provider</param>
         /// <param name="lsValue">string to be encrypted</param>
         /// <returns>encrypted version of the string</returns>
         public static string Encrypt(Type loType, string lsValue)
@@ -173,9 +172,9 @@ namespace MaxFactry.Core
         }
 
         /// <summary>
-        /// Default encryption routine with internal passphrase
+        /// Default encryption routine with passphrase provided
         /// </summary>
-        /// <param name="loType">Type of object to protect, or type of provider to use to protect</param>
+        /// <param name="loType">Type used to determine provider</param>
         /// <param name="laValue">byte array to be encrypted</param>
         /// <param name="lsPassphrase">Pass phrase used to encrypt the data</param>
         /// <returns>encrypted version of the byte array</returns>
@@ -191,11 +190,11 @@ namespace MaxFactry.Core
         }
 
         /// <summary>
-        /// Default encryption routine with internal passphrase
+        /// Default encryption routine using a passphrase to encrypt the data
         /// </summary>
-        /// <param name="loType">Type of object to protect, or type of provider to use to protect</param>
+        /// <param name="loType">Type used to determine provider</param>
         /// <param name="lsValue">string to be encrypted</param>
-        /// <param name="lsPassphrase">Pass phrase used to encrypt the data</param>
+        /// <param name="lsPassphrase">Pass phrase used to encrypt the data.  </param>
         /// <returns>encrypted version of the string</returns>
         public static string Encrypt(Type loType, string lsValue, string lsPassphrase)
         {
@@ -205,15 +204,15 @@ namespace MaxFactry.Core
                 return ((IMaxEncryptionLibraryProvider)loProvider).Encrypt(lsValue, lsPassphrase);
             }
 
-            throw new MaxException("Provider for MaxEncryptionLibrary needs to implement IMaxEncryptionLibraryProvider");
+            throw new MaxException("Provider for MaxEncryptionLibrary needs to implement IMaxEncryptionLibraryProvider");        
         }
 
         /// <summary>
-        /// Default encryption routine with internal passphrase
+        /// Default decryption routine with internal passphrase
         /// </summary>
-        /// <param name="loType">Type of object to protect, or type of provider to use to protect</param>
-        /// <param name="laValue">The data to be encrypted</param>
-        /// <returns>Encrypted version of the data</returns>
+        /// <param name="loType">Type used to determine provider</param>
+        /// <param name="laValue">The data to be decrypted</param>
+        /// <returns>Decrypted version of the data</returns>
         public static byte[] Decrypt(Type loType, byte[] laValue)
         {
             IMaxProvider loProvider = Instance.GetProvider(loType);
@@ -226,11 +225,11 @@ namespace MaxFactry.Core
         }
 
         /// <summary>
-        /// Default encryption routine with internal passphrase
+        /// Default decryption routine with internal passphrase
         /// </summary>
-        /// <param name="loType">Type of object to protect, or type of provider to use to protect</param>
-        /// <param name="lsValue">The data to be encrypted</param>
-        /// <returns>Encrypted version of the data</returns>
+        /// <param name="loType">Type used to determine provider</param>
+        /// <param name="lsValue">The data to be decrypted</param>
+        /// <returns>Decrypted version of the data</returns>
         public static string Decrypt(Type loType, string lsValue)
         {
             IMaxProvider loProvider = Instance.GetProvider(loType);
@@ -243,12 +242,12 @@ namespace MaxFactry.Core
         }
 
         /// <summary>
-        /// Default encryption routine with internal passphrase
+        /// Default decryption routine with internal passphrase
         /// </summary>
-        /// <param name="loType">Type of object to protect, or type of provider to use to protect</param>
-        /// <param name="laValue">The data to be encrypted</param>
-        /// <param name="lsPassphrase">Pass phrase used to encrypt the data</param>
-        /// <returns>Encrypted version of the data</returns>
+        /// <param name="loType">Type used to determine provider</param>
+        /// <param name="laValue">The data to be decrypted</param>
+        /// <param name="lsPassphrase">Pass phrase used to decrypt the data</param>
+        /// <returns>Decrypted version of the data</returns>
         public static byte[] Decrypt(Type loType, byte[] laValue, string lsPassphrase)
         {
             IMaxProvider loProvider = Instance.GetProvider(loType);
@@ -261,12 +260,12 @@ namespace MaxFactry.Core
         }
 
         /// <summary>
-        /// Default encryption routine with internal passphrase
+        /// Default decryption routine using a passphrase to decrypt the data
         /// </summary>
-        /// <param name="loType">Type of object to protect, or type of provider to use to protect</param>
-        /// <param name="lsValue">The data to be encrypted</param>
-        /// <param name="lsPassphrase">Pass phrase used to encrypt the data</param>
-        /// <returns>Encrypted version of the data</returns>
+        /// <param name="loType">Type used to determine provider</param>
+        /// <param name="lsValue">The data to be decrypted</param>
+        /// <param name="lsPassphrase">Pass phrase used to decrypt the data</param>
+        /// <returns>Decrypted version of the data</returns>
         public static string Decrypt(Type loType, string lsValue, string lsPassphrase)
         {
             IMaxProvider loProvider = Instance.GetProvider(loType);
@@ -281,7 +280,7 @@ namespace MaxFactry.Core
         /// <summary>
         /// Signs data with a private key to create a unique signature that can be verified with a public key
         /// </summary>
-        /// <param name="loType">Type of object to protect, or type of provider to use to protect</param>
+        /// <param name="loType">Type used to determine provider</param>
         /// <param name="lsPrivateKey">The private key</param>
         /// <param name="lsData">The data to sign</param>
         /// <returns>Signature that can be verified</returns>
@@ -299,7 +298,7 @@ namespace MaxFactry.Core
         /// <summary>
         /// Uses a public key to verify the data matches what was signed with the private key
         /// </summary>
-        /// <param name="loType">Type of object to protect, or type of provider to use to protect</param>
+        /// <param name="loType">Type used to determine provider</param>
         /// <param name="lsPublicKey">The public key</param>
         /// <param name="lsData">The data to verify</param>
         /// <param name="lsSignature">The signature to use to verify</param>
@@ -318,7 +317,7 @@ namespace MaxFactry.Core
         /// <summary>
         /// Gets a passphrase that is stored
         /// </summary>
-        /// <param name="loType">Type of object to protect, or type of provider to use to protect</param>
+        /// <param name="loType">Type used to determine provider</param>
         /// <param name="lsName">Name of the passphrase to get</param>
         /// <returns>Clear text version of the passphrase</returns>
         public static string GetPassphrase(Type loType, string lsName)
@@ -335,7 +334,7 @@ namespace MaxFactry.Core
         /// <summary>
         /// Stores a passphrase in memory
         /// </summary>
-        /// <param name="loType">Type of object to protect, or type of provider to use to protect</param>
+        /// <param name="loType">Type used to determine provider</param>
         /// <param name="lsName">Name to use for the passphrase</param>
         /// <param name="lsValue">The passphrase to store</param>
         public static void SetPassphrase(Type loType, string lsName, string lsValue)
@@ -345,14 +344,16 @@ namespace MaxFactry.Core
             {
                 ((IMaxEncryptionLibraryProvider)loProvider).SetPassphrase(lsName, lsValue);
             }
-
-            throw new MaxException("Provider for MaxEncryptionLibrary needs to implement IMaxEncryptionLibraryProvider");
+            else
+            {
+                throw new MaxException("Provider for MaxEncryptionLibrary needs to implement IMaxEncryptionLibraryProvider");
+            }
         }
 
         /// <summary>
         /// Computes the hash and returns it as a string
         /// </summary>
-        /// <param name="loType">Type of object to protect, or type of provider to use to protect</param>
+        /// <param name="loType">Type used to determine provider</param>
         /// <param name="lsHash">The Hash type to use</param>
         /// <param name="loValue">The value used to compute the hash</param>
         /// <returns>A unique string for the byte value</returns>		
@@ -370,7 +371,7 @@ namespace MaxFactry.Core
         /// <summary>
         /// Sets the application level default passphrase and entropy
         /// </summary>
-        /// <param name="loType">Type of object to protect, or type of provider to use</param>
+        /// <param name="loType">Type used to determine provider</param>
         /// <param name="lsDefaultPassphrase">Passphrase to use for default encryption when a passphrase is not specified.</param>
         /// <param name="lsDefaultEntropy">Entropy to use for DPAPI encryption (in memory only)</param>
         public static void SetDefault(Type loType, string lsDefaultPassphrase, string lsDefaultEntropy)
@@ -382,6 +383,13 @@ namespace MaxFactry.Core
             }
         }
 
+        /// <summary>
+        /// Returns a random double between lnStart and lnEnd
+        /// </summary>
+        /// <param name="loType">Type used to determine provider</param>
+        /// <param name="lnStart">The start of the range</param>
+        /// <param name="lnEnd">The end of the range</param>
+        /// <returns>A random double between lnStart and lnEnd</returns>
         public static double GetRandomDouble(Type loType, double lnStart, double lnEnd)
         {
             IMaxProvider loProvider = Instance.GetProvider(loType);
@@ -394,12 +402,12 @@ namespace MaxFactry.Core
         }
 
         /// <summary>
-        /// Retruns A 32-bit signed integer greater than or equal to lnStart and less than or equal to lnEnd;
+        /// Returns A 32-bit signed integer greater than or equal to lnStart and less than or equal to lnEnd;
         /// </summary>
-        /// <param name="loType"></param>
-        /// <param name="lnStart"></param>
-        /// <param name="lnEnd"></param>
-        /// <returns></returns>
+        /// <param name="loType">Type used to determine provider</param>
+        /// <param name="lnStart">The start of the range</param>
+        /// <param name="lnEnd">The end of the range</param>
+        /// <returns>A random integer between lnStart and lnEnd</returns>
         public static int GetRandomInt(Type loType, int lnStart, int lnEnd)
         {
             IMaxProvider loProvider = Instance.GetProvider(loType);
