@@ -35,6 +35,7 @@
 // <change date="12/31/2025" author="Brian A. Lakstins" description="Added new version that limits block size to 128 since that's what .net core 8 supports">
 // <change date="12/31/2025" author="Brian A. Lakstins" description="Arrange code for different .net versions">
 // <change date="5/18/2026" author="Brian A. Lakstins" description="Added JWK formatted keys">
+// <change date="5/21/2026" author="Brian A. Lakstins" description="Move Base64 Url Encoding to separate class">
 // </changelog>
 #endregion
 
@@ -438,10 +439,7 @@ namespace MaxFactry.Core.Provider
         /// <returns>base64url string</returns>
         protected virtual string Base64UrlEncode(byte[] laData)
         {
-            return Convert.ToBase64String(laData)
-                .TrimEnd('=')
-                .Replace('+', '-')
-                .Replace('/', '_');
+            return MaxConvertLibrary.Base64UrlEncode(this.GetType(), laData);
         }
 
         /// <summary>
@@ -451,13 +449,7 @@ namespace MaxFactry.Core.Provider
         /// <returns>decoded byte array</returns>
         protected virtual byte[] Base64UrlDecode(string lsValue)
         {
-            string lsDecode = lsValue.Replace('-', '+').Replace('_', '/');
-            switch (lsDecode.Length % 4)
-            {
-                case 2: lsDecode += "=="; break;
-                case 3: lsDecode += "="; break;
-            }
-            return Convert.FromBase64String(lsDecode);
+            return MaxConvertLibrary.Base64UrlDecode(this.GetType(), lsValue);
         }
 
         /// <summary>

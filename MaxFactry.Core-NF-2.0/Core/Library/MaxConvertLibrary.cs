@@ -36,6 +36,7 @@
 // <change date="6/2/2016" author="Brian A. Lakstins" description="Add formatting object to a string.">
 // <change date="7/12/2016" author="Brian A. Lakstins" description="Add multiple Guid to string conversions.">
 // <change date="8/5/2016" author="Brian A. Lakstins" description="Added conversion to sortable string.">
+// <change date="5/21/2026" author="Brian A. Lakstins" description="Add Base64 Url Encoding.">
 // </changelog>
 #endregion
 
@@ -45,9 +46,9 @@ namespace MaxFactry.Core
 	using System.IO;
 	using System.Text;
 
-	/// <summary>
-	/// Library to provide conversion functionality
-	/// </summary>
+    /// <summary>
+    /// Library to provide conversion functionality
+    /// </summary>
 	public class MaxConvertLibrary : MaxByMethodFactory
 	{
         /// <summary>
@@ -641,6 +642,28 @@ namespace MaxFactry.Core
         {
             IMaxConvertLibraryProvider loProvider = Instance.GetConvertLibraryProvider(loType);
             return loProvider.ConvertCSVToArray(lsText);
+        }
+
+        /// <summary>
+        /// Encodes a byte array as base64url (RFC 4648 §5, no padding) — used for JWK fields.
+        /// </summary>
+        /// <param name="laData">Bytes to encode</param>
+        /// <returns>base64url string</returns>
+        public static string Base64UrlEncode(Type loType, byte[] laData)
+        {
+            IMaxConvertLibraryProvider loProvider = Instance.GetConvertLibraryProvider(loType);
+            return loProvider.Base64UrlEncode(laData);
+        }
+
+        /// <summary>
+        /// Decodes a base64url string to a byte array (RFC 4648 §5, no padding) — used for JWK fields.
+        /// </summary>
+        /// <param name="lsValue">base64url string to decode</param>
+        /// <returns>decoded byte array</returns>
+        public static byte[] Base64UrlDecode(Type loType, string lsValue)
+        {
+            IMaxConvertLibraryProvider loProvider = Instance.GetConvertLibraryProvider(loType);
+            return loProvider.Base64UrlDecode(lsValue);
         }
 
         /// <summary>

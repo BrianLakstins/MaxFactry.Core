@@ -56,6 +56,7 @@
 // <change date="7/3/2019" author="Brian A. Lakstins" description="Updated exception logging to use structured logging.">
 // <change date="1/20/2021" author="Brian A. Lakstins" description="Updated object checking to not include types only with default deserialization types.">
 // <change date="7/29/2024" author="Brian A. Lakstins" description="Change default string for date conversion to ISO format.">
+// <change date="5/21/2026" author="Brian A. Lakstins" description="Add Base64 Url Encoding.">
 // </changelog>
 #endregion
 
@@ -2444,6 +2445,35 @@ namespace MaxFactry.Core.Provider
             }
 
             return loObject;
+        }
+
+        /// <summary>
+        /// Encodes a byte array as base64url (RFC 4648 §5, no padding) — used for JWK fields.
+        /// </summary>
+        /// <param name="laData">Bytes to encode</param>
+        /// <returns>base64url string</returns>
+        public virtual string Base64UrlEncode(byte[] laData)
+        {
+            return Convert.ToBase64String(laData)
+                .TrimEnd('=')
+                .Replace('+', '-')
+                .Replace('/', '_');
+        }
+
+        /// <summary>
+        /// Decodes a base64url string to a byte array (RFC 4648 §5, no padding) — used for JWK fields.
+        /// </summary>
+        /// <param name="lsValue">base64url string to decode</param>
+        /// <returns>decoded byte array</returns>
+        public virtual byte[] Base64UrlDecode(string lsValue)
+        {
+            string lsDecode = lsValue.Replace('-', '+').Replace('_', '/');
+            switch (lsDecode.Length % 4)
+            {
+                case 2: lsDecode += "=="; break;
+                case 3: lsDecode += "="; break;
+            }
+            return Convert.FromBase64String(lsDecode);
         }
 
 #if net2  || netcore2
